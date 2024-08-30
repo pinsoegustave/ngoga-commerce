@@ -8,14 +8,14 @@ import Skills from '@/components/Skills';
 import React, { useState } from 'react'
 
 const page = () => {
-  const [ nav, setNav ] = useState(false);
-  const openNav = () => setNav(true);
-  const closeNav = () => setNav(false);
+  const [ setNav, useSetNav ] = useState(false);
+  const openNav = () => useSetNav(true);
+  const closeNav = () => useSetNav(false);
   return (
     <div className='overflow-x-hidden'>
       <div>
         {/* Navbar */}
-        <MobileNav nav={nav} closeNav={closeNav} /> 
+        <MobileNav setNav={setNav} closeNav={closeNav} /> 
         <Navbar openNav={openNav} />
         {/* Hero Section */}
         <Hero />
