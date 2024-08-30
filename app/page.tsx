@@ -7,15 +7,15 @@ import Services from '@/components/Services';
 import Skills from '@/components/Skills';
 import React, { useState } from 'react'
 
-const page = () => {
-  const [ setNav, useSetNav ] = useState(false);
-  const openNav = () => useSetNav(true);
-  const closeNav = () => useSetNav(false);
+const Page = () => {
+  const [ nav, setNav ] = useState(false);
+  const openNav = () => setNav(true);
+  const closeNav = () => setNav(false);
   return (
     <div className='overflow-x-hidden'>
       <div>
         {/* Navbar */}
-        <MobileNav setNav={setNav} closeNav={closeNav} /> 
+        <MobileNav nav={nav} closeNav={closeNav} /> 
         <Navbar openNav={openNav} />
         {/* Hero Section */}
         <Hero />
@@ -29,4 +29,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page;
