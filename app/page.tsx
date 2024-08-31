@@ -1,5 +1,6 @@
 "use client"
 import About from '@/components/About';
+import Books from '@/components/Books';
 import Hero from '@/components/Hero';
 import MobileNav from '@/components/MobileNav';
 import Navbar from '@/components/Navbar'
@@ -23,6 +24,7 @@ const Page = () => {
           <About />
           <Services />
           <Skills />
+          <Books />
         </div>
       </div>
     </div>
