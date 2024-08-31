@@ -1,11 +1,13 @@
 "use client"
 import About from '@/components/About';
+import Blog from '@/components/Blog';
 import Books from '@/components/Books';
 import Hero from '@/components/Hero';
 import MobileNav from '@/components/MobileNav';
 import Navbar from '@/components/Navbar'
 import Services from '@/components/Services';
 import Skills from '@/components/Skills';
+import Testimonials from '@/components/Testimonials';
 import React, { useState } from 'react'
 
 const Page = () => {
@@ -25,6 +27,8 @@ const Page = () => {
           <Services />
           <Skills />
           <Books />
+          <Testimonials />
+          <Blog />
         </div>
       </div>
     </div>
