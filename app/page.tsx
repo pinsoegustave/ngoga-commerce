@@ -2,6 +2,7 @@
 import About from '@/components/About';
 import Blog from '@/components/Blog';
 import Books from '@/components/Books';
+import Footer from '@/components/Footer';
 import Hero from '@/components/Hero';
 import MobileNav from '@/components/MobileNav';
 import Navbar from '@/components/Navbar'
@@ -29,6 +30,7 @@ const Page = () => {
           <Books />
           <Testimonials />
           <Blog />
+          <Footer />
         </div>
       </div>
     </div>
