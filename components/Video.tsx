@@ -17,9 +17,9 @@ const Video = () => {
     <div className='pt-[4rem] md:pt-[8rem] pb-[5rem] bg-[#09101a]'>
         <h1 className='heading'>SONGS A<span className='text-yellow-400'>nd musics</span></h1>
         <div className='w-[80%] pt-[2rem] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[4rem]'>
-            { videos.map((v) => (
-                <div className='ratio ratio-16x9'>
-                    <iframe src={v} key={v} width={350} height={300} title='YouTube Video' allowFullScreen></iframe>
+            { videos.map((v, index) => (
+                <div key={index} className='ratio ratio-16x9'>
+                    <iframe src={v} key={index} width={350} height={300} title='YouTube Video' allowFullScreen></iframe>
                 </div>
             )) }
         </div>
