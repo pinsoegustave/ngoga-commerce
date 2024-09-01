@@ -20,7 +20,7 @@ const Footer = () => {
                 </div>
                 <div>
                     <h1 className='text-[25px] mb-[0.2rem] font-semibold text-white'>Phone</h1>
-                    <p className='text-[17px] w-[90%] text-white opacity-60'>(+250)-791852136</p>
+                    <p className='text-[17px] w-[90%] text-white opacity-60'>(+250)-780493640</p>
                 </div>
             </div>
             <div className='flex items-center space-x-6'>
@@ -29,7 +29,7 @@ const Footer = () => {
                 </div>
                 <div>
                     <h1 className='text-[25px] mb-[0.2rem] font-semibold text-white'>Send Email</h1>
-                    <p className='text-[17px] w-[90%] text-white opacity-60'>ngogak@gmail.com</p>
+                    <p className='text-[17px] w-[90%] text-white opacity-60'>ngogakelly@gmail.com</p>
                 </div>
             </div>
         </div>

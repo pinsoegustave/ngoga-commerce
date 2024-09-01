@@ -12,6 +12,7 @@ import Testimonials from '@/components/Testimonials';
 import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Video from '@/components/Video';
 
 const Page = () => {
   const [ nav, setNav ] = useState(false);
@@ -60,6 +61,7 @@ const Page = () => {
           <Services />
           <Skills />
           <Books />
+          <Video />
           <Testimonials />
           <Blog />
           <Footer />
