@@ -19,7 +19,7 @@ const Video = () => {
         <div className='w-[80%] pt-[2rem] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[4rem]'>
             { videos.map((v, index) => (
                 <div key={index} className='ratio ratio-16x9'>
-                    <iframe src={v} key={index} width={350} height={300} title='YouTube Video' allowFullScreen></iframe>
+                    <iframe src={v} width={350} height={300} title='YouTube Video' allowFullScreen></iframe>
                 </div>
             )) }
         </div>
