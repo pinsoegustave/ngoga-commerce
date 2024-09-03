@@ -3,12 +3,6 @@ import React from 'react'
 const Video = () => {
 
     const videos = [
-        'https://www.youtube.com/embed/FybNes9uByc?rel=0',
-        'https://www.youtube.com/embed/QRp4TgHJ7yU?rel=0',
-        'https://www.youtube.com/embed/pZ_ZU9f6Jr0?rel=0',
-        'https://www.youtube.com/embed/lbxcz-3nZaw?rel=0',
-        'https://www.youtube.com/embed/nMIM5uZuDhY?rel=0',
-        'https://www.youtube.com/embed/m7AaIPpkPiM?rel=0',
         'https://www.youtube.com/embed/ByhftlBp0Ec?rel=0',
         'https://www.youtube.com/embed/qTBAJ1M2HWw?rel=0',
         'https://www.youtube.com/embed/8yoyZsOSpuA?rel=0'
