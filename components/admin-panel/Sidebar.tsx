@@ -15,7 +15,7 @@ const Sidebar = () => {
             href: "/admin/dashboard",
         },
         {
-            title: "Videos",
+            title: "Music",
             icon: <BiSolidVideo />,
             href: "/admin/dashboard/music",
         },
