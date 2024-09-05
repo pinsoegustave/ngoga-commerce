@@ -19,7 +19,7 @@ const Popup = ({ setOpenPopup }: PropsType) => {
                 placeholder='Paste YouTube link here'
                 />
                 <div className='flex justify-end'>
-                    <button className='bg-accent block text-white px-8 py-2 rounded-lg self-center'>Add link</button>
+                    <button className='bg-[#0989FF] block px-8 py-2 rounded-lg self-center'>Add link</button>
                 </div>
             </form>
         </div>
