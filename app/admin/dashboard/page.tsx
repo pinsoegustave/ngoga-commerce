@@ -9,18 +9,19 @@ const Dashboard = () => {
       title: "Page visits",
       icon: <IoAnalytics />,
       count: 24,
+      link: "/admin/dashboard/",
     },
     {
       title: "Videos",
       icon: <BiSolidVideo />,
       count: 5,
-      link: "/admin/dashboard/videos",
+      link: "/admin/dashboard/music",
     },
     {
       title: "Books",
       icon: <IoBookOutline />,
       count: 4,
-      link: "/admin/dashboad/books",
+      link: "/admin/dashboard/books",
     },
     {
       title: "Blogs",
@@ -50,7 +51,7 @@ const Dashboard = () => {
             <strong className="flex items-center justify-center mx-auto text-md text-white font-semibold">
               {card.count}
             </strong>
-            <Link href={'/admin/dashboard/#'} className="text-blue-200 underline flex justify-center">Click to view in details.</Link>
+            <Link href={card.link} className="text-blue-200 underline flex justify-center">Click to view in details.</Link>
           </BoxWrapper>
           )}
         </div>
