@@ -20,6 +20,7 @@ const Blogs = () => {
               <tr className='text-gray-500 border-t border-[#ececec]'>
                 <th>Blog ID</th>
                 <th>Blog Title</th>
+                <th>Blog Image</th>
                 <th>Blog Description</th>
                 <th>Blog Actions</th>
               </tr>
@@ -31,6 +32,9 @@ const Blogs = () => {
                 </td>
                 <td>
                   <div>My journey to architect</div>
+                </td>
+                <td>
+                  <div>Image</div>
                 </td>
                 <td>
                   <div>Lorem ipsum dolor sit </div>
