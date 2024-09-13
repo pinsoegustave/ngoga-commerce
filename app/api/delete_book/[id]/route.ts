@@ -15,6 +15,6 @@ export async function DELETE(request: NextRequest, URLParams: any) {
             msg: "Something went wrong!!",
         },{
             status: 400
-        })
+        });
     }
 }
