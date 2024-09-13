@@ -12,6 +12,6 @@ const musicSchema = new mongoose.Schema({
     },
 }, { timestamps: true});
 
-const Music = mongoose.model("music", musicSchema);
+const Music =  mongoose.models.music || mongoose.model("music", musicSchema);
 
 export default Music;

@@ -2,7 +2,7 @@ import mongoose  from 'mongoose';
 
 
 export const connectMongoDB = async () => {
-    if (mongoose.connections[0].readyState) {
+    if (mongoose.connection.readyState === 1) {
         return true;
     }
 
