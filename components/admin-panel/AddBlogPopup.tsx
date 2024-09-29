@@ -1,5 +1,9 @@
-import React from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 import { IoIosCloseCircleOutline } from 'react-icons/io'
+
+interface PropsType {
+    setOpenPopUp: Dispatch<SetStateAction<boolean>>;
+}
 
 const AddBlogPopup = () => {
   return (
@@ -7,7 +11,7 @@ const AddBlogPopup = () => {
         <div className='bg-white w-[700px] py-8 rounded-lg text-center relative'>
             <IoIosCloseCircleOutline 
             className='absolute text-2xl right-0 top-0 m-4 cursor-pointer hover:text-red-600'
-            // onClick={() => setOpenPopup(false)}
+            // onClick={() => setOpenPopUp(false)}
             />
 
             <h2 className='text-2xl'>Add a new blog</h2>
