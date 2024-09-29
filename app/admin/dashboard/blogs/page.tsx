@@ -1,17 +1,25 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 import { CiEdit } from 'react-icons/ci'
 import { IoIosAddCircle } from 'react-icons/io'
 import { RiDeleteBin5Line } from 'react-icons/ri'
 
 const Blogs = () => {
+  
+  const [ blogs, setBlogs ] = useState([]);
+  const [ openPopUp, setOpenPopUp ] = useState(false);
+
+  const onAdd = () => {
+    setOpenPopUp(true);
+  }
+  
   return (
     <div>
       <div className='bg-white h-[calc(100vh-96px)] rounded-lg p-4'>
         <h2 className='text-3xl pb-4'>Blogs info</h2>
         <div>
           <button className='bg-green-600 p-4 rounded-md flex gap-2'>
-            <IoIosAddCircle className='text-2xl' />Add a new blog
+            <IoIosAddCircle className='text-2xl' onClick={onAdd} />Add a new blog
           </button>
         </div>
         {/* <div className=''> */}
