@@ -34,7 +34,7 @@ const AddBlogPopup = ({ setOpenPopUp }: PropsType) => {
                 required 
                 />
                 <div className='flex justify-end'>
-                    <button className='bg-[#0989FF] text-black px-8 py-2 rounded-lg flex items-center self-center'>
+                    <button className='bg-[#0989FF] text-black px-8 py-2 rounded-lg self-center'>
                         Save blog
                     </button>
                 </div>
