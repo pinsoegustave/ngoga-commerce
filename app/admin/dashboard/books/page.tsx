@@ -4,9 +4,18 @@ import React, { useState } from 'react'
 import { IoIosAddCircle } from 'react-icons/io'
 import { RiDeleteBin5Line } from 'react-icons/ri'
 
+export interface IBooks {
+  book_id: string,
+  book_name: string,
+  book_URL: string
+}
+
 const Books = () => {
 
+  const [ books, setBooks ] = useState([]); 
   const [ openPopUp, setOpenPopUp ] = useState(false);
+
+  
 
   return (
     <div>
@@ -25,9 +34,9 @@ const Books = () => {
                 <th>Book Action</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className='w-full'>
               <tr>
-                <td>bo1</td>
+                <td><div>bO12</div></td>
                 <td>bojfnsdkfksf</td>
                 <td><RiDeleteBin5Line 
                 className='text-[20px] cursor-pointer text-red-600'

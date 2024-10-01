@@ -1,28 +1,58 @@
 "use client"
-import React, { Dispatch, SetStateAction } from 'react'
+import { useAppDispatch } from '@/redux/hooks';
+import React, { Dispatch, FormEvent, SetStateAction, useState } from 'react'
 import { IoIosCloseCircleOutline } from 'react-icons/io';
+import axios from 'axios';
 
 interface PropsType {
     setOpenPopup: Dispatch<SetStateAction<boolean>>;
 }
 
-const AddBookPopup = ({ setOpenPopup }: PropsType) => {
+interface Ibook {
+    book_name: string,
+    book_URL: string,
+}
 
+const AddBookPopup = ({ setOpenPopup }: PropsType) => {
+    const [book, setBook ] = useState<Ibook>({
+        book_name: "",
+        book_URL: "",
+    });
+
+    const dispatch = useAppDispatch();
+
+    const handleSubmit = (e: FormEvent) => {
+        e.preventDefault();
+
+        axios.post("/api/add_book", book).then(res => {
+            setBook({
+                book_name: "",
+                book_URL: ""
+            });
+        })
+        .catch((err: any) => console.log(err))
+        // .finally(() => setLoading(false));
+        
+    }
   return (
     <div className='fixed top-0 left-0 w-full h-screen bg-[#00000070] grid place-items-center'>
         <div className='bg-white w-[700px] py-8 rounded-lg text-center relative'>
             <IoIosCloseCircleOutline className='absolute text-2xl right-0 top-0 m-4 text-red-600' onClick={() => setOpenPopup(false)} />
 
             <h2 className='text-2xl'>Add a new book</h2>
-            <form action="" className='mt-6 w-fit space-y-4 mx-auto'>
+            <form onSubmit={handleSubmit} className='mt-6 w-fit space-y-4 mx-auto'>
                 <input type="text"
                 className='border block border-gray-500 outline-none px-4 py-2 rounded-lg w-fit' 
                 placeholder='Book Name'
+                value={book.book_name}
+                onChange={(e) => setBook({ ...book, book_name: e.target.value })}
                 required
                 />
                 <input type="text"
                 className='border block border-gray-500 outline-none px-4 py-2 rounded-lg w-fit'
                 placeholder='Book link'
+                value={book.book_URL}
+                onChange={(e) => setBook({ ...book, book_URL: e.target.value })}
                 required
                 />
                 <div className='flex justify-end'>

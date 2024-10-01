@@ -5,6 +5,13 @@ import { CiEdit } from 'react-icons/ci'
 import { IoIosAddCircle } from 'react-icons/io'
 import { RiDeleteBin5Line } from 'react-icons/ri'
 
+export interface IBlogs {
+  blog_id: string,
+  blog_image: string,
+  blog_title: string,
+  blog_description: string,
+  
+}
 
 const Blogs = () => {
   
