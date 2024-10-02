@@ -12,7 +12,7 @@ export const bookSlice = createSlice({
     initialState,
 
     reducers: {
-        setBooks: (state, action: PayloadAction<IBooks>) => {
+        setBooks: (state: any, action: PayloadAction<IBooks>) => {
             return action.payload;
         },
     },
