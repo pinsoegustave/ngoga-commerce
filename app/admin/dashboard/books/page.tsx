@@ -1,5 +1,6 @@
 "use client"
 import AddBookPopup from '@/components/admin-panel/AddBookPopup'
+import BookRow from '@/components/admin-panel/BookRow'
 import { setLoading } from '@/redux/features/loadingSlice'
 import { useAppDispatch } from '@/redux/hooks'
 import axios from 'axios'
@@ -13,7 +14,12 @@ export interface IBooks {
   book_URL: string
 }
 
-const Books = () => {
+interface PropsType {
+  srNo: number;
+  setOpenPopup: React.Dispatch<React.SetStateAction<boolean>>;
+  book: IBooks;
+}
+const Books = ({srNo, setOpenPopup, book }: PropsType) => {
 
   const [ books, setBooks ] = useState([]); 
   const [ openPopUp, setOpenPopUp ] = useState(false);
@@ -43,17 +49,18 @@ const Books = () => {
               <tr className='text-gray-500 border-t border-[#ececec]'>
                 <th>Book ID</th>
                 <th>Book URL</th>
+                <th>Book Name</th>
                 <th>Book Action</th>
               </tr>
             </thead>
-            <tbody className='w-full'>
-              <tr>
-                <td><div>bO12</div></td>
-                <td>bojfnsdkfksf</td>
-                <td><RiDeleteBin5Line 
-                className='text-[20px] cursor-pointer text-red-600'
-                /></td>
-              </tr>
+            <tbody>
+              { books.map((book: IBooks, index) => (
+                <BookRow
+                  key={book.book_id}
+                  srNo={index + 1}
+                  book={book}
+                />
+              )) }
             </tbody>
           </table>
         </div>
