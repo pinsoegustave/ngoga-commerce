@@ -3,6 +3,7 @@ import { useAppDispatch } from '@/redux/hooks';
 import React, { Dispatch, FormEvent, SetStateAction, useState } from 'react'
 import { IoIosCloseCircleOutline } from 'react-icons/io';
 import axios from 'axios';
+import { setLoading } from '@/redux/features/loadingSlice';
 
 interface PropsType {
     setOpenPopup: Dispatch<SetStateAction<boolean>>;
@@ -23,6 +24,7 @@ const AddBookPopup = ({ setOpenPopup }: PropsType) => {
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
+        dispatch(setLoading(true));
 
         axios.post("/api/add_book", book).then(res => {
             setBook({
@@ -31,8 +33,7 @@ const AddBookPopup = ({ setOpenPopup }: PropsType) => {
             });
         })
         .catch((err: any) => console.log(err))
-        // .finally(() => setLoading(false));
-        
+        .finally(() => setLoading(false));  
     }
   return (
     <div className='fixed top-0 left-0 w-full h-screen bg-[#00000070] grid place-items-center'>

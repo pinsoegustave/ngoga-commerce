@@ -1,6 +1,9 @@
 "use client"
 import AddBookPopup from '@/components/admin-panel/AddBookPopup'
-import React, { useState } from 'react'
+import { setLoading } from '@/redux/features/loadingSlice'
+import { useAppDispatch } from '@/redux/hooks'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import { IoIosAddCircle } from 'react-icons/io'
 import { RiDeleteBin5Line } from 'react-icons/ri'
 
@@ -15,7 +18,16 @@ const Books = () => {
   const [ books, setBooks ] = useState([]); 
   const [ openPopUp, setOpenPopUp ] = useState(false);
 
-  
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(setLoading(true));
+
+    axios.get("/api/get_books")
+      .then((res) => setBooks(res.data))
+      .catch((err) => console.log(err))
+      .finally(() => dispatch(setLoading(false)));
+  }, []);
 
   return (
     <div>
