@@ -6,12 +6,12 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST( request: NextRequest) {
     try {
         const body = await request.json();
-        const { book_name, book_URL } = body;
+        const { book_imgSrc,fileKey, book_name, book_URL } = body;
 
         await connectMongoDB();
 
         const data = await Book.create({
-            book_name, book_URL
+            book_imgSrc,fileKey, book_name, book_URL
         });
 
         return NextResponse.json({ msg: "Book Added Successfully!!", data});

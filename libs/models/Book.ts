@@ -1,8 +1,15 @@
 import mongoose from "mongoose";
 
 
-
 const bookSchema = new mongoose.Schema({
+    book_imgSrc: {
+        type: String,
+        required: true
+    },
+    fileKey: {
+        type: String,
+        required: true,
+    },
     book_name: {
         type: String,
         required: true,

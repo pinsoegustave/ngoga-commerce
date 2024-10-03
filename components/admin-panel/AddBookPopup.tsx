@@ -4,18 +4,24 @@ import React, { Dispatch, FormEvent, SetStateAction, useState } from 'react'
 import { IoIosCloseCircleOutline } from 'react-icons/io';
 import axios from 'axios';
 import { setLoading } from '@/redux/features/loadingSlice';
+import Image from 'next/image';
+import { UploadButton } from '@/utils/uploadthing';
 
 interface PropsType {
     setOpenPopup: Dispatch<SetStateAction<boolean>>;
 }
 
 interface Ibook {
+    book_imgSrc: null | string;
+    fileKey: null | string;
     book_name: string,
     book_URL: string,
 }
 
 const AddBookPopup = ({ setOpenPopup }: PropsType) => {
     const [book, setBook ] = useState<Ibook>({
+        book_imgSrc: null,
+        fileKey: null,
         book_name: "",
         book_URL: "",
     });
@@ -28,11 +34,13 @@ const AddBookPopup = ({ setOpenPopup }: PropsType) => {
 
         axios.post("/api/add_book", book).then(res => {
             setBook({
+                book_imgSrc: null,
+                fileKey: null,
                 book_name: "",
                 book_URL: ""
             });
         })
-        .catch((err: any) => console.log(err))
+        .catch((err) => console.log(err))
         .finally(() => setLoading(false));  
     }
   return (
@@ -42,15 +50,37 @@ const AddBookPopup = ({ setOpenPopup }: PropsType) => {
 
             <h2 className='text-2xl'>Add a new book</h2>
             <form onSubmit={handleSubmit} className='mt-6 w-fit space-y-4 mx-auto'>
+                <Image 
+                className='max-h-[200px] w-full object-contain rounded-md opacity-40'
+                src={book.book_imgSrc ? book.book_imgSrc: "/placeholder.jpg"}
+                alt='book_image'
+                width={1000}
+                height={300}
+                />
+                <UploadButton 
+                    endpoint='imageUploader'
+                    onClientUploadComplete={(res) => {
+                        console.log(res);
+
+                        setBook({
+                            ...book,
+                            book_imgSrc: res[0]?.url,
+                            fileKey: res[0]?.key,
+                        });
+                    }}
+                    onUploadError={(error: Error) => {
+                        console.log(`ERROR! ${error}`);
+                    }}
+                />
                 <input type="text"
-                className='border block border-gray-500 outline-none px-4 py-2 rounded-lg w-fit' 
+                className='border block border-gray-500 outline-none px-4 py-2 rounded-lg w-full' 
                 placeholder='Book Name'
                 value={book.book_name}
                 onChange={(e) => setBook({ ...book, book_name: e.target.value })}
                 required
                 />
                 <input type="text"
-                className='border block border-gray-500 outline-none px-4 py-2 rounded-lg w-fit'
+                className='border block border-gray-500 outline-none px-4 py-2 rounded-lg w-full'
                 placeholder='Book link'
                 value={book.book_URL}
                 onChange={(e) => setBook({ ...book, book_URL: e.target.value })}

@@ -10,6 +10,8 @@ import { RiDeleteBin5Line } from 'react-icons/ri'
 
 export interface IBooks {
   book_id: string,
+  book_imgSrc: null | string,
+  fileKey: null | string,
   book_name: string,
   book_URL: string
 }
@@ -48,8 +50,9 @@ const Books = ({srNo, setOpenPopup, book }: PropsType) => {
             <thead>
               <tr className='text-gray-500 border-t border-[#ececec]'>
                 <th>Book ID</th>
-                <th>Book URL</th>
                 <th>Book Name</th>
+                <th>Book Image Cover</th>
+                <th>Book URL</th>
                 <th>Book Action</th>
               </tr>
             </thead>
