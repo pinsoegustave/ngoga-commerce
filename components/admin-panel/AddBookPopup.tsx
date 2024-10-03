@@ -37,7 +37,7 @@ const AddBookPopup = ({ setOpenPopup }: PropsType) => {
   return (
     <div className='fixed top-0 left-0 w-full h-screen bg-[#00000070] grid place-items-center'>
         <div className='bg-white w-[700px] py-8 rounded-lg text-center relative'>
-            <IoIosCloseCircleOutline className='absolute text-2xl right-0 top-0 m-4 text-red-600' onClick={() => setOpenPopup(false)} />
+            <IoIosCloseCircleOutline className='absolute text-2xl right-0 top-0 m-4 text-red-600 cursor-pointer' onClick={() => setOpenPopup(false)} />
 
             <h2 className='text-2xl'>Add a new book</h2>
             <form onSubmit={handleSubmit} className='mt-6 w-fit space-y-4 mx-auto'>
