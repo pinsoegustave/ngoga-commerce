@@ -51,7 +51,7 @@ const Books = ({srNo, setOpenPopup, book }: PropsType) => {
               <tr className='text-gray-500 border-t border-[#ececec]'>
                 <th>Book ID</th>
                 <th>Book Name</th>
-                <th>Book Image Cover</th>
+                <th className='w-30'>Book Image Cover</th>
                 <th>Book URL</th>
                 <th>Book Action</th>
               </tr>
@@ -59,7 +59,7 @@ const Books = ({srNo, setOpenPopup, book }: PropsType) => {
             <tbody>
               { books.map((book: IBooks, index) => (
                 <BookRow
-                  key={book.book_id}
+                  key={index}
                   srNo={index + 1}
                   book={book}
                 />

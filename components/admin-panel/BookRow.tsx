@@ -23,6 +23,9 @@ const BookRow = ({srNo, book}: PropsType) => {
         <div>{book.book_imgSrc}</div>
       </td>
       <td>
+        <div>{book.book_imgSrc}</div>
+      </td>
+      <td>
         <div>{book.book_URL}</div>
       </td>
       <td>

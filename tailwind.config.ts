@@ -18,6 +18,10 @@ export default withUt({
       },
       fontFamily: {
         primary: ["Poppins"],
+      },
+      container: {
+        center: true,
+        padding: "15px",
       }
     },
   },
