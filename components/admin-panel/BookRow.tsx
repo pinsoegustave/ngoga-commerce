@@ -1,5 +1,6 @@
 import { IBooks } from '@/app/admin/dashboard/books/page';
 import { useAppDispatch } from '@/redux/hooks';
+import Image from 'next/image';
 import React from 'react'
 import { RiDeleteBin5Line } from 'react-icons/ri';
 
@@ -20,13 +21,15 @@ const BookRow = ({srNo, book}: PropsType) => {
         <div>{book.book_name}</div>
       </td>
       <td>
-        <div>{book.book_imgSrc}</div>
+        <Image 
+          src={book.book_imgSrc}
+          width={40}
+          height={40}
+          alt='book_imageCover'
+        />
       </td>
       <td>
-        <div>{book.book_imgSrc}</div>
-      </td>
-      <td>
-        <div>{book.book_URL}</div>
+        <div>{book.book_URL.slice(0, 40)+ "..."}</div>
       </td>
       <td>
         <RiDeleteBin5Line 

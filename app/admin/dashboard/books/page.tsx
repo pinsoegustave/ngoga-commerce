@@ -10,8 +10,8 @@ import { RiDeleteBin5Line } from 'react-icons/ri'
 
 export interface IBooks {
   book_id: string,
-  book_imgSrc: null | string,
-  fileKey: null | string,
+  book_imgSrc: string,
+  fileKey: string,
   book_name: string,
   book_URL: string
 }
