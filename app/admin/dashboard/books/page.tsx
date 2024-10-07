@@ -19,9 +19,10 @@ export interface IBooks {
 interface PropsType {
   srNo: number;
   setOpenPopup: React.Dispatch<React.SetStateAction<boolean>>;
+  setUpdateBook: React.Dispatch<React.SetStateAction<boolean>>;
   book: IBooks;
 }
-const Books = ({srNo, setOpenPopup, book }: PropsType) => {
+const Books = ({srNo, setOpenPopup, book, setUpdateBook }: PropsType) => {
 
   const [ books, setBooks ] = useState([]); 
   const [ openPopUp, setOpenPopUp ] = useState(false);
@@ -62,6 +63,7 @@ const Books = ({srNo, setOpenPopup, book }: PropsType) => {
                   key={index}
                   srNo={index + 1}
                   book={book}
+                  setUpdateBook={setUpdateBook}
                 />
               )) }
             </tbody>
