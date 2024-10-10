@@ -2,7 +2,9 @@ import { IBooks } from "@/app/admin/dashboard/books/page";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: IBooks = {
-    book_id: "",
+    _id: "",
+    book_imgSrc: "",
+    fileKey: "",
     book_name: "",
     book_URL: ""
 };
