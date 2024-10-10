@@ -59,8 +59,10 @@ const BookRow = ({srNo, book, setUpdateBook}: PropsType) => {
         <div>{book.book_URL.slice(0, 40)+ "..."}</div>
       </td>
       <td>
-        <RiDeleteBin5Line onClick={onDelete}
+        <div className='text-2xl flex items-center gap-2 text-gray-600'>
+          <RiDeleteBin5Line onClick={onDelete}
           className='text-[20px] cursor-pointer text-red-600' />
+        </div>
         </td>
     </tr>
   )
