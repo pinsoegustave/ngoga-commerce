@@ -18,13 +18,13 @@ const ProductRow = ({ setOpenPopup }: PropsType) => {
             <div>102</div>
         </td>
         <td>
+            <div>ngoga-kelly-12</div>
+        </td>
+        <td>
             <div>youtube.com/ngoga-kelly-12</div>
         </td>
         <td>
             <div className='text-2xl flex items-center gap-2 text-gray-600'>
-                <CiEdit
-                className='cursor-pointer hover:text-black' onClick={onEdit} 
-                />
                 <RiDeleteBin5Line 
                 className='text-[20px] cursor-pointer hover:text-red-600'
                 />

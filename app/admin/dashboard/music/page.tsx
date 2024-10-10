@@ -4,9 +4,6 @@ import ProductRow from '@/components/admin-panel/ProductRow';
 import React, { useState } from 'react'
 import { IoAddCircle } from 'react-icons/io5';
 
-// interface PropsType {
-//   setOpenPopup: React.Dispatch<React.SetStateAction<boolean>>
-// }
 
 const Music = () => {
 
@@ -24,7 +21,8 @@ const Music = () => {
             <thead>
               <tr className='text-gray-500 border-t border-[#ececec]'>
                 <th>SR No</th>
-                <th>Youtube link</th>
+                <th>YouTube Name</th>
+                <th>YouTube link</th>
                 <th>Actions</th>
               </tr>
             </thead>
