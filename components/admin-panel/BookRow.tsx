@@ -27,7 +27,7 @@ const BookRow = ({srNo, book, setUpdateBook}: PropsType) => {
     axios.delete("/api/uploadthing", { data: payload }).then(res => {
       console.log(res.data);
 
-      axios.delete(`/api/delete_book/${book.book_id}`).then(res => {
+      axios.delete(`/api/delete_book/${book._id}`).then(res => {
         console.log(res.data);
         makeToast("Book is deleted!!!");
         setUpdateBook((prevState) => !prevState);

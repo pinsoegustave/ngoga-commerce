@@ -9,7 +9,7 @@ import { IoIosAddCircle } from 'react-icons/io'
 import { RiDeleteBin5Line } from 'react-icons/ri'
 
 export interface IBooks {
-  book_id: string,
+  _id: string,
   book_imgSrc: string,
   fileKey: string,
   book_name: string,
