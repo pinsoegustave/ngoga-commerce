@@ -1,13 +1,33 @@
 "use client"
 import Popup from '@/components/admin-panel/Popup';
-import ProductRow from '@/components/admin-panel/ProductRow';
-import React, { useState } from 'react'
+import { setLoading } from '@/redux/features/loadingSlice';
+import { useAppDispatch } from '@/redux/hooks';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { IoAddCircle } from 'react-icons/io5';
+import MusicRow from '@/components/admin-panel/MusicRow';
 
+export interface IMusic {
+  _id: string;
+  music_name: string;
+  music_URL: string;
+}
 
 const Music = () => {
 
   const [ openPopup, setOpenPopup ] = useState(false);
+  const [ musics, setMusics ] = useState([]);
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(setLoading(true));
+
+    axios.get("/api/get_music")
+      .then((res) => setMusics(res.data))
+      .catch((err) => console.log(err))
+      .finally(() => dispatch(setLoading(false)))
+  }, []);
 
   return (
     <div>
@@ -27,9 +47,14 @@ const Music = () => {
               </tr>
             </thead>
             <tbody>
-              <ProductRow 
-              setOpenPopup={setOpenPopup}
-              />
+              { musics.map((music: IMusic, index) => (  
+                <MusicRow 
+                  key={music._id}
+                  srNo={index +1 }
+                  music={music}
+                  setOpenPopup={setOpenPopup}
+                />
+              ))}
             </tbody>
           </table>
         </div>
