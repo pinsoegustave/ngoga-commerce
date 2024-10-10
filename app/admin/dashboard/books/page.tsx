@@ -6,7 +6,6 @@ import { useAppDispatch } from '@/redux/hooks'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { IoIosAddCircle } from 'react-icons/io'
-import { RiDeleteBin5Line } from 'react-icons/ri'
 
 export interface IBooks {
   _id: string,
@@ -17,12 +16,10 @@ export interface IBooks {
 }
 
 interface PropsType {
-  srNo: number;
-  setOpenPopup: React.Dispatch<React.SetStateAction<boolean>>;
   setUpdateBook: React.Dispatch<React.SetStateAction<boolean>>;
-  book: IBooks;
 }
-const Books = ({srNo, setOpenPopup, book, setUpdateBook }: PropsType) => {
+
+const Books = ({ setUpdateBook }: PropsType) => {
 
   const [ books, setBooks ] = useState([]); 
   const [ openPopUp, setOpenPopUp ] = useState(false);
