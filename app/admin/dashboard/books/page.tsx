@@ -15,11 +15,8 @@ export interface IBooks {
   book_URL: string
 }
 
-interface PropsType {
-  setUpdateBook: React.Dispatch<React.SetStateAction<boolean>>;
-}
 
-const Books = ({ setUpdateBook }: PropsType) => {
+const Books = () => {
 
   const [ books, setBooks ] = useState([]); 
   const [ openPopUp, setOpenPopUp ] = useState(false);
@@ -60,7 +57,6 @@ const Books = ({ setUpdateBook }: PropsType) => {
                   key={book._id}
                   srNo={index + 1}
                   book={book}
-                  setUpdateBook={setUpdateBook}
                 />
               )) }
             </tbody>
