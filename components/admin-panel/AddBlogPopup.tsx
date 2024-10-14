@@ -1,11 +1,13 @@
 "use client"
 import React, { Dispatch, SetStateAction } from 'react'
 import { IoIosCloseCircleOutline } from 'react-icons/io'
-import { Form, FormProvider, useForm } from 'react-hook-form'
+import { FormProvider, useForm } from 'react-hook-form'
 import * as z from "zod";
-import { FormControl, FormField, FormItem, FormLabel } from '../ui/form';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../ui/form';
 import { Input } from '../ui/input';
 import { zodResolver } from "@hookform/resolvers/zod"
+import { Button } from '../ui/button';
+import Tiptap from '../Tiptap';
 
 interface PropsType {
     setOpenPopUp: Dispatch<SetStateAction<boolean>>;
@@ -16,14 +18,13 @@ const AddBlogPopup = ({ setOpenPopUp }: PropsType) => {
     const formSchema = z.object({
         title: z
             .string()
-            .min(5, { message: "Hey the title is not long enough" })
+            .min(5, { message: "The title is not long enough" })
             .max(100, { message: "It&apos;s too long " }),
         price: z
             .number().min(5, { message: "Hey the title is " }),
         description: z
             .string()
-            .min(5, { message: "Hey the title is not long enough" })
-            .max(100, { message: "It's too long" })
+            .min(5, { message: "Description is not long enough" })
             .trim()
     })
 
@@ -35,7 +36,12 @@ const AddBlogPopup = ({ setOpenPopUp }: PropsType) => {
             price: 29.09,
             description: "",
         },
-    })
+    });
+
+    function onSubmit( values: z.infer<typeof formSchema>) {
+        // Do sth with the form values
+    }
+
   return (
     <div className='fixed top-0 left-0 w-full h-screen bg-[#00000070] grid place-items-center'>
         <div className='bg-white w-[700px] py-8 rounded-lg text-center relative'>
@@ -45,23 +51,41 @@ const AddBlogPopup = ({ setOpenPopUp }: PropsType) => {
             />
 
             <h2 className='text-2xl'>Add a new blog</h2>
-            <FormProvider {...form}>
-                <form>
+            <Form {...form}>
+                <form className='w-[500px] mx-auto' onSubmit={form.handleSubmit(onSubmit)} >
                     <FormField
                         control={form.control}
                         name= "title"
                         render={({ field }) => (
-                            field.value,
+                            // field.value,
                             <FormItem>
                                 <FormLabel>Title</FormLabel>
                                 <FormControl>
                                     <Input placeholder="Main title for your blog" />
                                 </FormControl>
+                                <FormMessage />
                             </FormItem>
                         )}
                         />
+                        <FormField
+                        control={form.control}
+                        name= "description"
+                        render={({ field }) => (
+                            // field.value,
+                            <FormItem>
+                                <FormLabel>Description</FormLabel>
+                                <FormControl>
+                                    <Tiptap description={field.name} onChange={field.onBlur} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                        />
+                    <Button className='my-4' type='submit'>
+                        Submit
+                    </Button>
                 </form>
-            </FormProvider>
+            </Form>
 
             {/* <form className="mt-6 w-fit space-y-4 mx-auto">
                 <input type="text"
