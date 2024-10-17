@@ -20,11 +20,10 @@ const AddBlogPopup = ({ setOpenPopUp }: PropsType) => {
             .string()
             .min(5, { message: "The title is not long enough" })
             .max(100, { message: "It&apos;s too long " }),
-        price: z
-            .number().min(5, { message: "Hey the title is " }),
         description: z
             .string()
             .min(5, { message: "Description is not long enough" })
+            .max(1000, { message: "Try to keep it short" })
             .trim()
     })
 
@@ -33,7 +32,6 @@ const AddBlogPopup = ({ setOpenPopUp }: PropsType) => {
         mode: "onChange",
         defaultValues: {
             title: "",
-            price: 29.09,
             description: "",
         },
     });
@@ -49,20 +47,23 @@ const AddBlogPopup = ({ setOpenPopUp }: PropsType) => {
             <IoIosCloseCircleOutline 
             className='absolute text-2xl right-0 top-0 m-4 cursor-pointer text-red-600'
             onClick={() => setOpenPopUp(false)}
-            />
+            />  
 
             <h2 className='text-2xl'>Add a new blog</h2>
             <Form {...form}>
-                <form className='w-[500px] mx-auto' onSubmit={form.handleSubmit(onSubmit)} >
+                <form className='w-[500px] mx-auto' 
+                onSubmit={form.handleSubmit(onSubmit)} 
+                noValidate
+                >
                     <FormField
                         control={form.control}
                         name= "title"
                         render={({ field }) => (
-                            field.value,
+                            field.onChange,
                             <FormItem>
                                 <FormLabel>Title</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="Main title for your blog" />
+                                    <Input placeholder="Main title for your blog" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -87,29 +88,6 @@ const AddBlogPopup = ({ setOpenPopUp }: PropsType) => {
                     </Button>
                 </form>
             </Form>
-
-            {/* <form className="mt-6 w-fit space-y-4 mx-auto">
-                <input type="text"
-                className='border block border-gray-500 outline-none px-4 py-2 rounded-lg w-fit' 
-                placeholder='Blog Image'
-                required 
-                />
-                <input type="text"
-                className='border block border-gray-500 outline-none px-4 py-2 rounded-lg w-fit' 
-                placeholder='Blog Title'
-                required 
-                />
-                <input type="text"
-                className='border block border-gray-500 outline-none px-4 py-2 rounded-lg w-fit' 
-                placeholder='Blog Description'
-                required 
-                />
-                <div className='flex justify-end'>
-                    <button className='bg-[#0989FF] text-black px-8 py-2 rounded-lg self-center'>
-                        Save blog
-                    </button>
-                </div>
-            </form> */}
         </div>
     </div>
   )

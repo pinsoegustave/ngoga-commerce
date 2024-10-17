@@ -15,7 +15,6 @@ export default function Tiptap({
     const editor = useEditor({
         extensions: [
             TextAlign,
-            Heading,
             StarterKit.configure()],
         content: description,
         immediatelyRender: false,
@@ -27,7 +26,7 @@ export default function Tiptap({
             },
         onUpdate({ editor }) {
             onChange(editor.getHTML())
-            // console.log(editor.getHTML())
+            console.log(editor.getHTML())
         },
     })
 
