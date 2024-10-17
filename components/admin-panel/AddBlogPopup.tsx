@@ -40,6 +40,7 @@ const AddBlogPopup = ({ setOpenPopUp }: PropsType) => {
 
     function onSubmit( values: z.infer<typeof formSchema>) {
         // Do sth with the form values
+        console.log(values);
     }
 
   return (
@@ -57,7 +58,7 @@ const AddBlogPopup = ({ setOpenPopUp }: PropsType) => {
                         control={form.control}
                         name= "title"
                         render={({ field }) => (
-                            // field.value,
+                            field.value,
                             <FormItem>
                                 <FormLabel>Title</FormLabel>
                                 <FormControl>
@@ -71,7 +72,7 @@ const AddBlogPopup = ({ setOpenPopUp }: PropsType) => {
                         control={form.control}
                         name= "description"
                         render={({ field }) => (
-                            // field.value,
+                            field.value,
                             <FormItem>
                                 <FormLabel>Description</FormLabel>
                                 <FormControl>

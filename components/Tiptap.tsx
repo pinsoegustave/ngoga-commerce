@@ -23,12 +23,12 @@ export default function Tiptap({
             },
         onUpdate({ editor }) {
             onChange(editor.getHTML())
-            console.log(editor.getHTML())
+            // console.log(editor.getHTML())
         },
     })
 
     return (
-        <div className='flex flex-col justify-stretch min-h-[250px]'>
+        <div className='flex flex-col justify-stretch gap-2 min-h-[250px]'>
             <Toolbar editor={editor} />
             <EditorContent editor={editor} />
         </div>
