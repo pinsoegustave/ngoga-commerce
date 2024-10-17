@@ -1,6 +1,6 @@
 "use client"
 import { type Editor } from "@tiptap/react"
-import { Bold, Strikethrough, Italic, List, ListOrdered, Heading2 } from "lucide-react"
+import { Bold, Strikethrough, Italic, List, ListOrdered, Heading2, Heading3, Heading1, AlignCenter, AlignRight, AlignLeft } from "lucide-react"
 import { Toggle } from "./ui/toggle"
 
 
@@ -19,10 +19,28 @@ export function Toolbar({ editor }: Props) {
                 size="sm"
                 pressed={editor.isActive("heading")}
                 onPressedChange={() => 
+                    editor.chain().focus().toggleHeading({ level: 1 }).run()
+                }
+                >
+                    <Heading1 className="h-4 w-4" />
+            </Toggle>
+            <Toggle 
+                size="sm"
+                pressed={editor.isActive("heading")}
+                onPressedChange={() => 
                     editor.chain().focus().toggleHeading({ level: 2 }).run()
                 }
                 >
                     <Heading2 className="h-4 w-4" />
+            </Toggle>
+            <Toggle 
+                size="sm"
+                pressed={editor.isActive("heading")}
+                onPressedChange={() => 
+                    editor.chain().focus().toggleHeading({ level: 3 }).run()
+                }
+                >
+                    <Heading3 className="h-4 w-4" />
             </Toggle>
             <Toggle 
                 size="sm"
@@ -69,7 +87,33 @@ export function Toolbar({ editor }: Props) {
                 >
                     <ListOrdered className="h-4 w-4" />
             </Toggle>
-
+            <Toggle 
+                size="sm"
+                pressed={editor.isActive({textAlign: 'left'})}
+                onPressedChange={() => 
+                    editor.chain().focus().setTextAlign("left").run()
+                }
+                >
+                <AlignLeft className="h-4 w-4" />
+            </Toggle>
+            <Toggle 
+                size="sm"
+                pressed={editor.isActive({textAlign: 'center'})}
+                onPressedChange={() => 
+                    editor.chain().focus().setTextAlign("center").run()
+                }
+                >
+                <AlignCenter className="h-4 w-4" />
+            </Toggle>
+            <Toggle 
+                size="sm"
+                pressed={editor.isActive({textAlign: 'right'})}
+                onPressedChange={() => 
+                    editor.chain().focus().setTextAlign("right").run()
+                }
+                >
+                <AlignRight className="h-4 w-4" />
+            </Toggle>
         </div>
     )
 }

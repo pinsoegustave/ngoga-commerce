@@ -1,6 +1,7 @@
 'use client'
 import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
+import TextAlign from '@tiptap/extension-text-align'
 import { Toolbar } from './Toolbar'
 import Heading from "@tiptap/extension-heading"
 
@@ -12,7 +13,10 @@ export default function Tiptap({
     onChange: any
 }) {
     const editor = useEditor({
-        extensions: [StarterKit.configure()],
+        extensions: [
+            TextAlign,
+            Heading,
+            StarterKit.configure()],
         content: description,
         immediatelyRender: false,
         editorProps: {

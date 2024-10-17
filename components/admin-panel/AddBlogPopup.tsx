@@ -76,7 +76,7 @@ const AddBlogPopup = ({ setOpenPopUp }: PropsType) => {
                             <FormItem>
                                 <FormLabel>Description</FormLabel>
                                 <FormControl>
-                                    <Tiptap description={field.name} onChange={field.onBlur} />
+                                    <Tiptap description={""} onChange={field.onBlur} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
