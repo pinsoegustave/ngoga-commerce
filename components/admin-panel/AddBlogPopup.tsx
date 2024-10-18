@@ -20,10 +20,11 @@ const AddBlogPopup = ({ setOpenPopUp }: PropsType) => {
             .string()
             .min(5, { message: "The title is not long enough" })
             .max(100, { message: "It&apos;s too long " }),
-        description: z
+        description: 
+        z
             .string()
-            .min(5, { message: "Description is not long enough" })
-            .max(1000, { message: "Try to keep it short" })
+            // .min(5, { message: "Description is not long enough" })
+            // .max(1000, { message: "Try to keep it short" })
             .trim()
     })
 
@@ -73,11 +74,11 @@ const AddBlogPopup = ({ setOpenPopUp }: PropsType) => {
                         control={form.control}
                         name= "description"
                         render={({ field }) => (
-                            field.value,
+                            field.onChange,
                             <FormItem>
                                 <FormLabel>Description</FormLabel>
                                 <FormControl>
-                                    <Tiptap description={""} onChange={field.onBlur} />
+                                    <Tiptap description={field.value} onChange={field.onChange} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
