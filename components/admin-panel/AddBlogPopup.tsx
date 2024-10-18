@@ -19,7 +19,7 @@ interface PropsType {
 }
 
 interface IBlog {
-    blog_Image: null | string;
+    blogImage: null | string;
     fileKey: null | string;
     blogTitle: string;
     description: string;
@@ -58,9 +58,13 @@ const AddBlogPopup = ({ setOpenPopUp }: PropsType) => {
 
     function onSubmit( values: z.infer<typeof formSchema>) {
         dispatch(setLoading(true));
-        axios.post("/api/add_blog", values).then(res => {
+        axios.post("/api/add_blog", {
+            ...values,
+            blogImage: blogs.blogImage,
+            fileKey: blogs.fileKey
+        }).then(res => {
             setBlogs({
-                blog_Image: null,
+                blogImage: null,
                 fileKey: null,
                 blogTitle: "",
                 description: ""
@@ -87,7 +91,7 @@ const AddBlogPopup = ({ setOpenPopUp }: PropsType) => {
                 >
                     <Image 
                     className='max-h-[100px] w-full object-contain rounded-md opacity-40'
-                    src={blogs.blog_Image ? blogs.blog_Image: "/placeholder.jpg"}
+                    src={blogs.blogImage ? blogs.blogImage: "/placeholder.jpg"}
                     alt='blog_image'
                     width={1000}
                     height={300}
@@ -99,7 +103,7 @@ const AddBlogPopup = ({ setOpenPopUp }: PropsType) => {
 
                             setBlogs({
                                 ...blogs,
-                                blog_Image: res[0]?.url,
+                                blogImage: res[0]?.url,
                                 fileKey: res[0]?.key
                             });
                         }}
