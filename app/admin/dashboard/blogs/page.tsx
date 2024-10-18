@@ -1,23 +1,42 @@
 "use client"
 import AddBlogPopup from '@/components/admin-panel/AddBlogPopup'
-import React, { useState } from 'react'
+import BlogRow from '@/components/admin-panel/BlogRow'
+import { setLoading } from '@/redux/features/loadingSlice'
+import { useAppDispatch } from '@/redux/hooks'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import { CiEdit } from 'react-icons/ci'
 import { IoIosAddCircle } from 'react-icons/io'
 import { RiDeleteBin5Line } from 'react-icons/ri'
 
 export interface IBlogs {
   blog_id: string,
-  blog_image: string,
-  blog_title: string,
-  blog_description: string,
+  blogImage: string,
+  fileKey: string,
+  blogTitle: string,
+  description: string,
   
 }
 
-const Blogs = () => {
+interface PropsType {
+  setUpdateBlog: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Blogs = ({ setUpdateBlog }: PropsType) => {
   
   const [ blogs, setBlogs ] = useState([]);
   const [ openPopUp, setOpenPopUp ] = useState(false);
   
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(setLoading(true));
+    axios.get("/api/get_blogs")
+        .then((res) => setBlogs(res.data))
+        .catch((err) => console.log(err))
+        .finally(() => dispatch(setLoading(false)));
+}, []);
+
   return (
     <div>
       <div className='bg-white h-[calc(100vh-96px)] rounded-lg p-4'>
@@ -39,35 +58,16 @@ const Blogs = () => {
               </tr>
             </tbody>
             <tbody>
-              <tr>
-                <td>
-                  BLOG001
-                </td>
-                <td>
-                  My journey to architect
-                </td>
-                <td>
-                  Image
-                </td>
-                <td>
-                  Lorem ipsum dolor sit 
-                  </td>
-                <div>
-                  {/* <td> */}
-                  <td className='text-2xl flex items-center gap-2 text-gray-600'>
-                <CiEdit
-                className='cursor-pointer hover:text-black' 
-                />
-                <RiDeleteBin5Line 
-                className='text-[20px] cursor-pointer text-red-600'
-                />
-            </td>
-                  {/* </td> */}
-                </div>
-              </tr>
+              { blogs.map((getme: IBlogs, index) => (
+                <BlogRow 
+                  key={index}
+                  srNo={index + 1}
+                  blogged={getme}
+                  setUpdateBlog={setUpdateBlog}
+                  />
+                )) }
             </tbody>
           </table>
-        {/* </div> */}
       </div>
       { openPopUp && ( <AddBlogPopup setOpenPopUp={setOpenPopUp} /> ) }
     </div>
