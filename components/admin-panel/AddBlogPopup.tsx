@@ -10,6 +10,9 @@ import { Button } from '../ui/button';
 import Tiptap from '../Tiptap';
 import Image from 'next/image';
 import { UploadButton } from '@/utils/uploadthing';
+import { useAppDispatch } from '@/redux/hooks';
+import { setLoading } from '@/redux/features/loadingSlice';
+import axios from 'axios';
 
 interface PropsType {
     setOpenPopUp: Dispatch<SetStateAction<boolean>>;
@@ -18,7 +21,7 @@ interface PropsType {
 interface IBlog {
     blog_Image: null | string;
     fileKey: null | string;
-    title: string;
+    blogTitle: string;
     description: string;
 }
 
@@ -26,12 +29,13 @@ const AddBlogPopup = ({ setOpenPopUp }: PropsType) => {
     const [ blogs, setBlogs ] = useState<IBlog>({
         blog_Image: null,
         fileKey: null,
-        title: "",
+        blogTitle: "",
         description: ""
     });
+    const dispatch =  useAppDispatch();
 
     const formSchema = z.object({
-        title: z
+        blogTitle: z
             .string()
             .min(5, { message: "The title is not long enough" })
             .max(100, { message: "It&apos;s too long " }),
@@ -47,14 +51,24 @@ const AddBlogPopup = ({ setOpenPopUp }: PropsType) => {
         resolver: zodResolver(formSchema),
         mode: "onChange",
         defaultValues: {
-            title: "",
+            blogTitle: "",
             description: "",
         },
     });
 
     function onSubmit( values: z.infer<typeof formSchema>) {
-        // Do sth with the form values
-        console.log(values);
+        dispatch(setLoading(true));
+        axios.post("/api/add_blog", values).then(res => {
+            setBlogs({
+                blog_Image: null,
+                fileKey: null,
+                blogTitle: "",
+                description: ""
+            });
+        })
+        .catch((err) => console.log(err))
+        .finally(() => setLoading(false));
+        // console.log(values);
     }
 
   return (
@@ -95,7 +109,7 @@ const AddBlogPopup = ({ setOpenPopUp }: PropsType) => {
                     />
                     <FormField
                         control={form.control}
-                        name= "title"
+                        name= "blogTitle"
                         render={({ field }) => (
                             field.onChange,
                             <FormItem>
