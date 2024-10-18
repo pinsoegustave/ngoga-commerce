@@ -10,7 +10,11 @@ const blogSchema = new mongoose.Schema({
         type: String,
         require: true,
     },
-    blogDescribe: {
+    fileKey: {
+        type: String,
+        require: true,
+    },
+    description: {
         type: String,
         require: true,
     },
