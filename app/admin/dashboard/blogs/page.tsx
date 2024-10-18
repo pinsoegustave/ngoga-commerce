@@ -18,14 +18,15 @@ export interface IBlogs {
   
 }
 
-interface PropsType {
-  setUpdateBlog: React.Dispatch<React.SetStateAction<boolean>>;
-}
+// interface PropsType {
+//   setUpdateBlog: React.Dispatch<React.SetStateAction<boolean>>;
+// }
 
-const Blogs = ({ setUpdateBlog }: PropsType) => {
+const Blogs = () => {
   
   const [ blogs, setBlogs ] = useState([]);
   const [ openPopUp, setOpenPopUp ] = useState(false);
+  const [updateBlog, setUpdateBlog] = useState(false);
   
   const dispatch = useAppDispatch();
 
