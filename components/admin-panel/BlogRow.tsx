@@ -28,7 +28,7 @@ const BlogRow = ({ srNo, blogged, setUpdateBlog}: PropsType) => {
         axios.delete("/api/uploadthing", { data: payload}).then((res => {
             console.log(res.data);
 
-            axios.delete(`/api/delete_blog/${blogged.blog_id}`).then((res => {
+            axios.delete(`/api/delete_blog/${blogged._id}`).then((res => {
                 console.log(res.data);
                 console.log("Blog Deleted");
                 setUpdateBlog((prevState) => !prevState);
@@ -56,7 +56,7 @@ const BlogRow = ({ srNo, blogged, setUpdateBlog}: PropsType) => {
             <CiEdit
                 className='cursor-pointer hover:text-black' 
             />
-            <RiDeleteBin5Line
+            <RiDeleteBin5Line onClick={onDelete}
                 className='text-[20px] cursor-pointer text-red-600'
             />
         </td>

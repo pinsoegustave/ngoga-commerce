@@ -10,7 +10,7 @@ import { IoIosAddCircle } from 'react-icons/io'
 import { RiDeleteBin5Line } from 'react-icons/ri'
 
 export interface IBlogs {
-  blog_id: string,
+  _id: string,
   blogImage: string,
   fileKey: string,
   blogTitle: string,
