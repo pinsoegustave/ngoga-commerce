@@ -1,5 +1,5 @@
 "use client"
-import React, { Dispatch, SetStateAction } from 'react'
+import React, { Dispatch, SetStateAction, useState } from 'react'
 import { IoIosCloseCircleOutline } from 'react-icons/io'
 import { FormProvider, useForm } from 'react-hook-form'
 import * as z from "zod";
@@ -8,13 +8,28 @@ import { Input } from '../ui/input';
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Button } from '../ui/button';
 import Tiptap from '../Tiptap';
+import Image from 'next/image';
+import { UploadButton } from '@/utils/uploadthing';
 
 interface PropsType {
     setOpenPopUp: Dispatch<SetStateAction<boolean>>;
 }
 
+interface IBlog {
+    blog_Image: null | string;
+    fileKey: null | string;
+    title: string;
+    description: string;
+}
+
 const AddBlogPopup = ({ setOpenPopUp }: PropsType) => {
-    
+    const [ blogs, setBlogs ] = useState<IBlog>({
+        blog_Image: null,
+        fileKey: null,
+        title: "",
+        description: ""
+    });
+
     const formSchema = z.object({
         title: z
             .string()
@@ -56,6 +71,28 @@ const AddBlogPopup = ({ setOpenPopUp }: PropsType) => {
                 onSubmit={form.handleSubmit(onSubmit)} 
                 noValidate
                 >
+                    <Image 
+                    className='max-h-[100px] w-full object-contain rounded-md opacity-40'
+                    src={blogs.blog_Image ? blogs.blog_Image: "/placeholder.jpg"}
+                    alt='blog_image'
+                    width={1000}
+                    height={300}
+                    />
+                    <UploadButton 
+                        endpoint='imageUploader'
+                        onClientUploadComplete={(res) => {
+                            console.log(res);
+
+                            setBlogs({
+                                ...blogs,
+                                blog_Image: res[0]?.url,
+                                fileKey: res[0]?.key
+                            });
+                        }}
+                        onUploadError={(error: Error) => {
+                            console.log(`ERROR! ${error}`);
+                        }}
+                    />
                     <FormField
                         control={form.control}
                         name= "title"
