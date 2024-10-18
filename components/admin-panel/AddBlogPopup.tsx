@@ -27,7 +27,7 @@ interface IBlog {
 
 const AddBlogPopup = ({ setOpenPopUp }: PropsType) => {
     const [ blogs, setBlogs ] = useState<IBlog>({
-        blog_Image: null,
+        blogImage: null,
         fileKey: null,
         blogTitle: "",
         description: ""

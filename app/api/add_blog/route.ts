@@ -7,12 +7,12 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST( request: NextRequest ) {
     try {
         const body = await request.json();
-        const { blogTitle, blogImage, blogDescribe } = body;
+        const { blogTitle, blogImage, fileKey, blogDescribe } = body;
 
         await connectMongoDB();
 
         const data = await Blog.create({
-            blogTitle, blogImage, blogDescribe
+            blogTitle, blogImage, fileKey, blogDescribe
         });
 
         return NextResponse.json({ msg: "Blog Added Successfully", data});
