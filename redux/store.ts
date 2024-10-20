@@ -1,13 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import bookReducer from "./features/bookSlice";
-import blogReducer from "./features/blogSlice";
 import loadingReducer from "./features/loadingSlice";
 
 
 export const store = configureStore({
     reducer: {
         bookReducer,
-        blogReducer,
         loadingReducer
     },
     devTools: process.env.NODE_ENV !== "production",
