@@ -51,7 +51,7 @@ const BlogRow = ({ srNo, blogged, setUpdateBlog}: PropsType) => {
                 height={40}
             />
         </td>
-        <td>{blogged.description}</td>
+        <td>{blogged.description.slice(0, 40)+ "..."}</td>
         <td className='text-2xl flex items-center gap-2 text-gray-600'>
             <CiEdit
                 className='cursor-pointer hover:text-black' 
