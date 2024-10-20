@@ -31,7 +31,7 @@ const Popup = ({ setOpenPopup }: PropsType) => {
             });
         })
         .catch((err) => console.log(err))
-        .finally(() => setLoading(false));
+        .finally(() => dispatch(setLoading(false)));
     }
 
   return (
