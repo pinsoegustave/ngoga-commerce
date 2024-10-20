@@ -71,7 +71,7 @@ const AddBlogPopup = ({ setOpenPopUp }: PropsType) => {
             });
         })
         .catch((err) => console.log(err))
-        .finally(() => setLoading(false));
+        .finally(() => dispatch(setLoading(false)));
         // console.log(values);
     }
 
