@@ -22,7 +22,7 @@ const Popup = ({ setOpenPopup }: PropsType) => {
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
-        setLoading(true);
+        dispatch(setLoading(true));
 
         axios.post("/api/add_music", music).then(res => {
             setMusic({

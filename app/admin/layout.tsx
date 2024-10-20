@@ -2,8 +2,8 @@
 import Loader from '@/components/admin-panel/Loader';
 // import Login from '@/components/admin-panel/Login';
 import Sidebar from '@/components/admin-panel/Sidebar';
-// import { useAppSelector } from '@/redux/hooks'
-// import { useSession } from 'next-auth/react';
+import { useAppSelector } from '@/redux/hooks'
+import { useSession } from 'next-auth/react';
 import React, { useState } from 'react'
 
 
@@ -13,8 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
-    const [ isLoading, setIsLoading ] = useState(false);
-//   const isLoading = useAppSelector((store) => store.loadingReducer);
+  const isLoading = useAppSelector((store) => store.loadingReducer);
     // const { data: session } = useSession();
 
     // if (!session?.user) {
