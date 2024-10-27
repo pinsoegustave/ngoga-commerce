@@ -1,14 +1,11 @@
 "use client"
 import AddBlogPopup from '@/components/admin-panel/AddBlogPopup'
 import BlogRow from '@/components/admin-panel/BlogRow'
-import EditBlog from '@/components/admin-panel/EditBlog'
 import { setLoading } from '@/redux/features/loadingSlice'
 import { useAppDispatch } from '@/redux/hooks'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { CiEdit } from 'react-icons/ci'
 import { IoIosAddCircle } from 'react-icons/io'
-import { RiDeleteBin5Line } from 'react-icons/ri'
 
 export interface IBlogs {
   _id: string,
@@ -18,10 +15,6 @@ export interface IBlogs {
   description: string,
   
 }
-
-// interface PropsType {
-//   setUpdateBlog: React.Dispatch<React.SetStateAction<boolean>>;
-// }
 
 const Blogs = () => {
   
