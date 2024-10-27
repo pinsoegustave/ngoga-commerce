@@ -1,6 +1,7 @@
 "use client"
 import AddBlogPopup from '@/components/admin-panel/AddBlogPopup'
 import BlogRow from '@/components/admin-panel/BlogRow'
+import EditBlog from '@/components/admin-panel/EditBlog'
 import { setLoading } from '@/redux/features/loadingSlice'
 import { useAppDispatch } from '@/redux/hooks'
 import axios from 'axios'
@@ -25,6 +26,7 @@ export interface IBlogs {
 const Blogs = () => {
   
   const [ blogs, setBlogs ] = useState([]);
+  const [ edit, setEdit ] = useState(false);
   const [ openPopUp, setOpenPopUp ] = useState(false);
   const [updateBlog, setUpdateBlog] = useState(false);
   
@@ -71,6 +73,7 @@ const Blogs = () => {
           </table>
       </div>
       { openPopUp && ( <AddBlogPopup setOpenPopUp={setOpenPopUp} /> ) }
+      
     </div>
   )
 }
