@@ -6,6 +6,7 @@ import axios from 'axios';
 import { setLoading } from '@/redux/features/loadingSlice';
 import Image from 'next/image';
 import { UploadButton } from '@/utils/uploadthing';
+import { useRouter } from 'next/navigation';
 
 interface PropsType {
     setOpenPopup: Dispatch<SetStateAction<boolean>>;
@@ -26,6 +27,7 @@ const AddBookPopup = ({ setOpenPopup }: PropsType) => {
         book_URL: "",
     });
 
+    const router = useRouter();
     const dispatch = useAppDispatch();
 
     const handleSubmit = (e: FormEvent) => {
@@ -41,8 +43,9 @@ const AddBookPopup = ({ setOpenPopup }: PropsType) => {
             });
         })
         .catch((err) => console.log(err))
-        .finally(() => setLoading(false));  
+        .finally(() => dispatch(setLoading(false)));  
     }
+
   return (
     <div className='fixed top-0 left-0 w-full h-screen bg-[#00000070] grid place-items-center'>
         <div className='bg-white w-[700px] py-8 rounded-lg text-center relative'>
