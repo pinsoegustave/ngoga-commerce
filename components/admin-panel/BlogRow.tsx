@@ -7,6 +7,7 @@ import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { CiEdit } from 'react-icons/ci';
 import { RiDeleteBin5Line } from 'react-icons/ri';
 import EditBlog from './EditBlog';
+import { theBlog } from '@/redux/features/blogSlice';
 
 interface PropsType {
     srNo: number;
@@ -22,6 +23,7 @@ const BlogRow = ({ srNo, blogged, setUpdateBlog}: PropsType) => {
     const dispatch = useAppDispatch();
     
     const onEdit = () => {
+        dispatch(theBlog(blogged));
         setEdit(true);
     }
 
