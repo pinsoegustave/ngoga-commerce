@@ -49,9 +49,9 @@ const Blogs = () => {
             <IoIosAddCircle className='text-2xl' />Add a new blog
           </button>
         </div>
-        {/* <div className=''> */}
-          <table className='w-full mt-4 h-[clac(100vh-180px)] overflow-y-auto'>
-            <tbody>
+        <div className='mt-4 h-[calc(100vh-180px)] overflow-y-auto'>
+          <table className='w-full'>
+            <thead>
               <tr className='text-gray-500 border-t border-[#ececec]'>
                 <th>Blog ID</th>
                 <th>Blog Title</th>
@@ -59,7 +59,7 @@ const Blogs = () => {
                 <th>Blog Description</th>
                 <th>Blog Actions</th>
               </tr>
-            </tbody>
+            </thead>
             <tbody>
               { blogs.map((getme: IBlogs, index) => (
                 <BlogRow 
@@ -71,6 +71,7 @@ const Blogs = () => {
                 )) }
             </tbody>
           </table>
+      </div>
       </div>
       { openPopUp && ( <AddBlogPopup setOpenPopUp={setOpenPopUp} /> ) }
       
