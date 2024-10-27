@@ -66,7 +66,7 @@ const BlogRow = ({ srNo, blogged, setUpdateBlog}: PropsType) => {
                 className='text-[20px] cursor-pointer text-red-600'
             />
         </td>
-        { edit && ( <EditBlog setEdit={setEdit} /> )}
+        { edit && ( <EditBlog setEdit={setEdit} setUpdateBlog={setUpdateBlog} /> )}
     </tr>
   )
 }
