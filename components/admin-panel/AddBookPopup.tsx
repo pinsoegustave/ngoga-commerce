@@ -38,7 +38,6 @@ const AddBookPopup = ({ setOpenPopup }: PropsType) => {
 
         axios.post("/api/add_book", book).then(res => {
             setOpenPopup(false),
-            window.location.reload();
             makeToast("Book Added Successfully");
             setBook({
                 book_imgSrc: null,
@@ -46,6 +45,7 @@ const AddBookPopup = ({ setOpenPopup }: PropsType) => {
                 book_name: "",
                 book_URL: ""
             });
+            window.location.reload();
             // router.refresh();
         })
         .catch((err) => console.log(err))
