@@ -20,6 +20,7 @@ const Books = () => {
 
   const [ books, setBooks ] = useState([]); 
   const [ openPopUp, setOpenPopUp ] = useState(false);
+  const [ updateTable, setUpdateTable ] = useState(false);
 
   const dispatch = useAppDispatch();
 
@@ -30,7 +31,7 @@ const Books = () => {
       .then((res) => setBooks(res.data))
       .catch((err) => console.log(err))
       .finally(() => dispatch(setLoading(false)));
-  }, []);
+  }, [updateTable]);
 
   return (
     <div>
@@ -57,6 +58,7 @@ const Books = () => {
                   key={book._id}
                   srNo={index + 1}
                   book={book}
+                  setUpdateTable={setUpdateTable}
                 />
               )) }
             </tbody>

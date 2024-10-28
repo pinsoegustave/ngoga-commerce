@@ -10,9 +10,10 @@ import { RiDeleteBin5Line } from 'react-icons/ri';
 interface PropsType {
     srNo: number;
     book: IBooks;
+    setUpdateTable: Dispatch<SetStateAction<boolean>>;
 }
 
-const BookRow = ({ srNo, book }: PropsType) => {
+const BookRow = ({ srNo, book, setUpdateTable }: PropsType) => {
 
   const dispatch = useAppDispatch();
 
@@ -29,6 +30,7 @@ const BookRow = ({ srNo, book }: PropsType) => {
       axios.delete(`/api/delete_book/${book._id}`).then(res => {
         console.log(res.data);
         makeToast("Book is deleted!!!");
+        setUpdateTable((prevState) => !prevState)
       })
       .catch((err) => console.log(err))
       .finally(() => dispatch(setLoading(false)));
