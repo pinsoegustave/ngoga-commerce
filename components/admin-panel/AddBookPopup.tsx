@@ -4,7 +4,7 @@ import React, { Dispatch, FormEvent, SetStateAction, useState } from 'react'
 import { IoIosCloseCircleOutline } from 'react-icons/io';
 import { setLoading } from '@/redux/features/loadingSlice';
 import { UploadButton } from '@/utils/uploadthing';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 import { makeToast } from '@/utils/helper';
 import axios from 'axios';
 import Image from 'next/image';
@@ -29,7 +29,7 @@ const AddBookPopup = ({ setOpenPopup }: PropsType) => {
         book_URL: "",
     });
 
-    const router = useRouter();
+    // const router = useRouter();
     const dispatch = useAppDispatch();
 
     const handleSubmit = (e: FormEvent) => {
@@ -37,6 +37,8 @@ const AddBookPopup = ({ setOpenPopup }: PropsType) => {
         dispatch(setLoading(true));
 
         axios.post("/api/add_book", book).then(res => {
+            setOpenPopup(false),
+            window.location.reload();
             makeToast("Book Added Successfully");
             setBook({
                 book_imgSrc: null,
@@ -44,9 +46,11 @@ const AddBookPopup = ({ setOpenPopup }: PropsType) => {
                 book_name: "",
                 book_URL: ""
             });
+            // router.refresh();
         })
         .catch((err) => console.log(err))
         .finally(() => dispatch(setLoading(false)));
+        
     }
 
   return (
