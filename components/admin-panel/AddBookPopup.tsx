@@ -2,11 +2,13 @@
 import { useAppDispatch } from '@/redux/hooks';
 import React, { Dispatch, FormEvent, SetStateAction, useState } from 'react'
 import { IoIosCloseCircleOutline } from 'react-icons/io';
-import axios from 'axios';
 import { setLoading } from '@/redux/features/loadingSlice';
-import Image from 'next/image';
 import { UploadButton } from '@/utils/uploadthing';
 import { useRouter } from 'next/navigation';
+import { makeToast } from '@/utils/helper';
+import axios from 'axios';
+import Image from 'next/image';
+import Link from 'next/link';
 
 interface PropsType {
     setOpenPopup: Dispatch<SetStateAction<boolean>>;
@@ -35,6 +37,7 @@ const AddBookPopup = ({ setOpenPopup }: PropsType) => {
         dispatch(setLoading(true));
 
         axios.post("/api/add_book", book).then(res => {
+            makeToast("Book Added Successfully");
             setBook({
                 book_imgSrc: null,
                 fileKey: null,
@@ -43,7 +46,7 @@ const AddBookPopup = ({ setOpenPopup }: PropsType) => {
             });
         })
         .catch((err) => console.log(err))
-        .finally(() => dispatch(setLoading(false)));  
+        .finally(() => dispatch(setLoading(false)));
     }
 
   return (
@@ -52,6 +55,7 @@ const AddBookPopup = ({ setOpenPopup }: PropsType) => {
             <IoIosCloseCircleOutline className='absolute text-2xl right-0 top-0 m-4 text-red-600 cursor-pointer' onClick={() => setOpenPopup(false)} />
 
             <h2 className='text-2xl'>Add a new book</h2>
+            <Link href={'/admin/dashboard/books'} onClick={() => setOpenPopup(false)}>Go back</Link>
             <form onSubmit={handleSubmit} className='mt-6 w-fit space-y-4 mx-auto'>
                 <Image 
                 className='max-h-[200px] w-full object-contain rounded-md opacity-40'
