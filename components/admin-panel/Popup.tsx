@@ -1,5 +1,6 @@
 import { setLoading } from '@/redux/features/loadingSlice';
 import { useAppDispatch } from '@/redux/hooks';
+import { makeToast } from '@/utils/helper';
 import axios from 'axios';
 import React, { Dispatch, FormEvent, SetStateAction, useState } from 'react'
 import { IoIosCloseCircleOutline } from 'react-icons/io'
@@ -25,10 +26,12 @@ const Popup = ({ setOpenPopup }: PropsType) => {
         dispatch(setLoading(true));
 
         axios.post("/api/add_music", music).then(res => {
+            makeToast("Music added successfully!");
             setMusic({
                 music_name: "",
                 music_URL: ""
             });
+            window.location.reload();
         })
         .catch((err) => console.log(err))
         .finally(() => dispatch(setLoading(false)));
