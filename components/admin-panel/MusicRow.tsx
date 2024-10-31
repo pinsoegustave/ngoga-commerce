@@ -22,7 +22,7 @@ const MusicRow = ({ srNo, music, setOpenPopup }: PropsType) => {
         axios.delete(`/api/delete_music/${music._id}`).then(res => {
             console.log(res.data);
             makeToast("Music is deleted!!");
-
+            window.location.reload();
         })
         .catch((err) => console.log(err))
         .finally(() => dispatch(setLoading(false)));
