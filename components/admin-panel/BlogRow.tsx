@@ -8,6 +8,7 @@ import { CiEdit } from 'react-icons/ci';
 import { RiDeleteBin5Line } from 'react-icons/ri';
 import EditBlog from './EditBlog';
 import { theBlog } from '@/redux/features/blogSlice';
+import { makeToast } from '@/utils/helper';
 
 interface PropsType {
     srNo: number;
@@ -38,7 +39,7 @@ const BlogRow = ({ srNo, blogged, setUpdateBlog}: PropsType) => {
 
             axios.delete(`/api/delete_blog/${blogged._id}`).then((res => {
                 console.log(res.data);
-                console.log("Blog Deleted");
+                makeToast("Blog Deleted Successfully");
                 setUpdateBlog((prevState) => !prevState);
             }))
             .catch((err) => console.log(err))
