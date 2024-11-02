@@ -41,6 +41,7 @@ const BlogRow = ({ srNo, blogged, setUpdateBlog}: PropsType) => {
                 console.log(res.data);
                 makeToast("Blog Deleted Successfully");
                 setUpdateBlog((prevState) => !prevState);
+                window.location.reload();
             }))
             .catch((err) => console.log(err))
             .finally(() => dispatch(setLoading(false)));
