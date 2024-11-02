@@ -30,6 +30,8 @@ const EditBlog = ({ setEdit, setUpdateBlog }: PropsType) => {
             .then((res) => {
                 makeToast("Blog Updated Successfully");
                 setUpdateBlog((prevState) => !prevState);
+
+                window.location.reload();
             })
             .catch((err: any) => console.log(err))
             .finally(() => {
