@@ -13,6 +13,7 @@ import { UploadButton } from '@/utils/uploadthing';
 import { useAppDispatch } from '@/redux/hooks';
 import { setLoading } from '@/redux/features/loadingSlice';
 import axios from 'axios';
+import { makeToast } from '@/utils/helper';
 
 interface PropsType {
     setOpenPopUp: Dispatch<SetStateAction<boolean>>;
@@ -58,6 +59,7 @@ const AddBlogPopup = ({ setOpenPopUp }: PropsType) => {
 
     function onSubmit( values: z.infer<typeof formSchema>) {
         dispatch(setLoading(true));
+        makeToast("New blog added successfully!!");
         axios.post("/api/add_blog", {
             ...values,
             blogImage: blogs.blogImage,
@@ -69,10 +71,11 @@ const AddBlogPopup = ({ setOpenPopUp }: PropsType) => {
                 blogTitle: "",
                 description: ""
             });
+
+            window.location.reload();
         })
         .catch((err) => console.log(err))
         .finally(() => dispatch(setLoading(false)));
-        // console.log(values);
     }
 
   return (
