@@ -1,5 +1,6 @@
+"use client"
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BiSolidVideo } from "react-icons/bi";
 import { IoAnalytics, IoBookOutline, IoNewspaper } from "react-icons/io5";
 
@@ -30,6 +31,24 @@ const Dashboard = () => {
       link: "/admin/dashboard/blogs",
     },
   ];
+
+  const [count , setCount] = useState(0);
+
+  useEffect(() => {
+    const fetchCount = async() => {
+      try {
+        const response = await fetch('/api/total_blogs');
+        const data = await response.json();
+        setCount(data.count);
+      }
+      catch (error) {
+        console.error('Error fetching count: ', error);
+      }
+    };
+
+    fetchCount();
+  }, []);
+
   return (
     <div>
       <div className="bg-white h-[calc(100vh-96px)] rounded-lg p-4">
@@ -49,7 +68,7 @@ const Dashboard = () => {
               </div>
             </div>
             <strong className="flex items-center justify-center mx-auto text-md text-white font-semibold">
-              {card.count}
+              {count}
             </strong>
             <Link href={card.link} className="text-blue-200 underline flex justify-center">Click to view in details.</Link>
           </BoxWrapper>
