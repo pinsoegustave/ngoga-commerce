@@ -5,7 +5,7 @@ import { BiSolidVideo } from "react-icons/bi";
 import { IoAnalytics, IoBookOutline, IoNewspaper } from "react-icons/io5";
 
 const Dashboard = () => {
-  const cards = [
+  const [ cards, setCards ] = useState([
     {
       title: "Page visits",
       icon: <IoAnalytics />,
@@ -15,31 +15,46 @@ const Dashboard = () => {
     {
       title: "Videos",
       icon: <BiSolidVideo />,
-      count: 5,
+      count: 0,
       link: "/admin/dashboard/music",
     },
     {
       title: "Books",
       icon: <IoBookOutline />,
-      count: 4,
+      count: 0,
       link: "/admin/dashboard/books",
     },
     {
       title: "Blogs",
       icon: <IoNewspaper />,
-      count: 12,
+      count: 0,
       link: "/admin/dashboard/blogs",
     },
-  ];
+  ]);
 
-  const [count , setCount] = useState(0);
 
   useEffect(() => {
     const fetchCount = async() => {
       try {
-        const response = await fetch('/api/total_blogs');
-        const data = await response.json();
-        setCount(data.count);
+        const [ blogsResponse, booksResponse, videoResponse ]= await Promise.all([
+          fetch('/api/total_blogs'),
+          fetch('/api/total_books'),
+          fetch('/api/total_music')
+        ]);
+
+        const [ blogsData, booksData, videoData ] = await Promise.all([
+          blogsResponse.json(),
+          booksResponse.json(),
+          videoResponse.json(),
+        ]);
+
+        setCards((prevCards) => 
+          prevCards.map((card) => {
+            if (card.title === 'Blogs') return { ...card, count: blogsData.count };
+            if (card.title === 'Books') return { ...card, count: booksData.count_books };
+            if (card.title === 'Videos') return { ...card, count: videoData.count_videos };
+            return card;
+          }));
       }
       catch (error) {
         console.error('Error fetching count: ', error);
@@ -68,7 +83,7 @@ const Dashboard = () => {
               </div>
             </div>
             <strong className="flex items-center justify-center mx-auto text-md text-white font-semibold">
-              {count}
+              {card.count}
             </strong>
             <Link href={card.link} className="text-blue-200 underline flex justify-center">Click to view in details.</Link>
           </BoxWrapper>

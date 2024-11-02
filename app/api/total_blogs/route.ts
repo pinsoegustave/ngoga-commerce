@@ -1,6 +1,5 @@
 import Blog from "@/libs/models/Blog";
 import { connectMongoDB } from "@/libs/MongoConnect";
-import { NextApiRequest, NextApiResponse } from "next";
 import { NextResponse } from "next/server";
 
 
