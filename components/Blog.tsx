@@ -1,6 +1,7 @@
 import { ChatBubbleLeftRightIcon, UserCircleIcon } from '@heroicons/react/16/solid'
 import axios from 'axios';
 import Image from 'next/image'
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 
 type Blog = {
@@ -34,7 +35,7 @@ const Blog = () => {
         </h1>
         <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 mt-[4rem] gap-[3rem] w-[80%] mx-auto'>
            { blogs.map((blog:Blog) => ( 
-            <div key={blog._id}>
+            <Link href={`/blogs/${blog._id}`} key={blog._id}>
                 <div className='w-[100%] relative h-[400px]'>
                     <Image 
                     src={blog.blogImage}
@@ -59,7 +60,7 @@ const Blog = () => {
                     </div>
                     <p className='mt-[1rem] text-white text-[18px] font-semibold'>{blog.blogTitle}</p>
                 </div>
-            </div>
+            </Link>
             ))}
         </div>
     </div>
