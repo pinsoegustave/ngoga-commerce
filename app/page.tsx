@@ -13,8 +13,9 @@ import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Video from '@/components/Video';
+import axios from 'axios';
 
-const Page = ({ blogs }: { blogs: Blog[]}) => {
+const Page = () => {
   const [ nav, setNav ] = useState(false);
   const openNav = () => setNav(true);
   const closeNav = () => setNav(false);
@@ -47,6 +48,18 @@ const Page = ({ blogs }: { blogs: Blog[]}) => {
 });
   }, []);
 
+  useEffect(() => {
+    try {
+    axios.get('/api/get_blogs')
+      .then((res) => {
+        console.log(res.data);
+        const blogs: Blog[] = res.data.blogs || [];
+      })
+    }
+    catch(error) {
+      console.error('Error while fetching', error);
+    }
+  })
 
   return (
     <div className='overflow-x-hidden'>
