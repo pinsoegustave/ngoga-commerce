@@ -48,19 +48,6 @@ const Page = () => {
 });
   }, []);
 
-  useEffect(() => {
-    try {
-    axios.get('/api/get_blogs')
-      .then((res) => {
-        console.log(res.data);
-        const blogs: Blog[] = res.data.blogs || [];
-      })
-    }
-    catch(error) {
-      console.error('Error while fetching', error);
-    }
-  })
-
   return (
     <div className='overflow-x-hidden'>
       <div>
@@ -76,7 +63,7 @@ const Page = () => {
           <Books />
           <Video />
           <Testimonials />
-          <Blog blogs={blogs} />
+          <Blog />
           <Footer />
         </div>
       </div>

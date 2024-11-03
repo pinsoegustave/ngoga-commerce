@@ -1,7 +1,7 @@
 import { ChatBubbleLeftRightIcon, UserCircleIcon } from '@heroicons/react/16/solid'
-import { GetServerSideProps, NextPage } from 'next'
+import axios from 'axios';
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 type Blog = {
     _id: string;
@@ -10,11 +10,22 @@ type Blog = {
     description: string;
 }
 
-type BlogProps = {
-    blogs: Blog[];
-}
 
-const Blog: NextPage<BlogProps> = ({ blogs }) => {
+const Blog = () => {
+    const [ blogs, setBlogs ] = useState([]);
+
+    useEffect(() => {
+        try {
+            axios.get('/api/get_blogs')
+            .then((res) => {
+                console.log(res.data);
+                setBlogs(res.data);
+            });
+        }
+        catch (error) {
+            console.error('Error fetching blogs: ', error);
+        }
+    }, []);
 
   return (
     <div className='pt-[4rem] md:pt-[8rem] pb-[4rem] bg-[#02050a]'>
@@ -22,7 +33,7 @@ const Blog: NextPage<BlogProps> = ({ blogs }) => {
             MY <span className='text-yellow-400'>BLOG</span>
         </h1>
         <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 mt-[4rem] gap-[3rem] w-[80%] mx-auto'>
-           { blogs && blogs.map((blog) => ( 
+           { blogs.map((blog:Blog) => ( 
             <div key={blog._id}>
                 <div className='w-[100%] relative h-[400px]'>
                     <Image 
@@ -55,25 +66,5 @@ const Blog: NextPage<BlogProps> = ({ blogs }) => {
   )
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
-    try {
-        const res = await fetch('/api/get_blogs');
-        const data = await res.json();
-        console.log(data);
-        return {
-            props: {
-                blogs: data.blogs || [],
-            },
-        };
-    } catch (error) {
-        console.error('Error fetching blogs data:', error);
-    }
-    // Fallback data incase of an error
-    return {
-        props: {
-            blogs: [],
-        }
-    }
-}
 
 export default Blog;
