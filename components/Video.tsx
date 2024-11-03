@@ -21,11 +21,6 @@ const Video = () => {
 
     }, []);
 
-    // const videos = [
-    //     'https://www.youtube.com/embed/ByhftlBp0Ec?rel=0',
-    //     'https://www.youtube.com/embed/qTBAJ1M2HWw?rel=0',
-    //     'https://www.youtube.com/embed/8yoyZsOSpuA?rel=0'
-    // ]
     return (
     <div className='pt-[4rem] md:pt-[8rem] pb-[5rem] bg-[#09101a]'>
         <h1 className='heading'>SONGS A<span className='text-yellow-400'>nd musics</span></h1>
