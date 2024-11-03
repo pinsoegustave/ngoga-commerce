@@ -19,7 +19,6 @@ export interface IBlogs {
 const Blogs = () => {
   
   const [ blogs, setBlogs ] = useState([]);
-  const [ edit, setEdit ] = useState(false);
   const [ openPopUp, setOpenPopUp ] = useState(false);
   const [updateBlog, setUpdateBlog] = useState(false);
   
