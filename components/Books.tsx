@@ -22,7 +22,7 @@ const Books = () => {
             })
             .catch((err) => console.error(err));
     }, []);
-    
+
   return (
     <div className='bg-[#02050a] pt-[4rem] md:pt-[8rem] pb-[1rem]'>
         <h1 className='heading'>MY BO
@@ -44,58 +44,6 @@ const Books = () => {
             </Link>
         ))}
         </div>
-            {/* <div data-aos="fade-up" data-aos-delay="300">
-                <div className='transform cursor-pointer hover:-translate-y-6 transition-all druration-200 relative w-[100%] h-[200px] md:h-[300px]'>
-                    <Image 
-                    src={'/book4.jfif'}
-                    alt='book2'
-                    layout='fill'
-                    className='object-contain'
-                    />
-                </div>
-            </div>
-            <div data-aos="fade-right" data-aos-delay="600">
-                <div className='transform cursor-pointer hover:-translate-y-6 transition-all druration-200 relative w-[100%] h-[200px] md:h-[300px]'>
-                    <Image 
-                    src={'/book3.jfif'}
-                    alt='book3'
-                    layout='fill'
-                    className='object-contain'
-                    />
-                </div>
-            </div>
-            <div data-aos="fade-up" data-aos-delay="900">
-                <div className='transform cursor-pointer hover:-translate-y-6 transition-all druration-200 relative w-[100%] h-[200px] md:h-[300px]'>
-                    <Image 
-                    src={'/book4.webp'}
-                    alt='book4'
-                    layout='fill'
-                    className='object-contain'
-                    />
-                </div>
-            </div>
-            <div data-aos="fade-up" data-aos-delay="1200">
-                <div className='transform cursor-pointer hover:-translate-y-6 transition-all druration-200 relative w-[100%] h-[200px] md:h-[300px]'>
-                    <Image 
-                    src={'/book5.webp'}
-                    alt='book5'
-                    layout='fill'
-                    className='object-contain'
-                    />
-                </div>
-            </div>
-            <div data-aos="fade-up" data-aos-delay="1500">
-                <div className='transform cursor-pointer hover:-translate-y-6 transition-all druration-200 relative w-[100%] h-[200px] md:h-[300px]'>
-                        <Image 
-                        src={'/book2.jpg'}
-                        alt='book5'
-                        layout='fill'
-                        className='object-contain'
-                    />
-                    
-                </div>
-            </div> */}
-        {/* // </div> */}
     </div>
   )
 }
