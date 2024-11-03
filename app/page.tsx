@@ -14,7 +14,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Video from '@/components/Video';
 
-const Page = () => {
+const Page = ({ blogs }: { blogs: Blog[]}) => {
   const [ nav, setNav ] = useState(false);
   const openNav = () => setNav(true);
   const closeNav = () => setNav(false);
@@ -63,7 +63,7 @@ const Page = () => {
           <Books />
           <Video />
           <Testimonials />
-          <Blog />
+          <Blog blogs={blogs} />
           <Footer />
         </div>
       </div>
