@@ -1,9 +1,6 @@
 'use client'
 import MobileNav from '@/components/MobileNav'
 import Navbar from '@/components/Navbar';
-import axios from 'axios';
-import { GetServerSideProps } from 'next';
-import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
 
 interface Blog {
