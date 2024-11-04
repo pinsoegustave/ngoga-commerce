@@ -17,6 +17,9 @@ import axios from 'axios';
 
 const Page = () => {
   const [ nav, setNav ] = useState(false);
+  const [ loading, setLoading ] = useState(false);
+
+
   const openNav = () => setNav(true);
   const closeNav = () => setNav(false);
 
