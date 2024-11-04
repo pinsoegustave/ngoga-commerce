@@ -3,6 +3,8 @@ import axios from 'axios';
 import Image from 'next/image'
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
+import axiosRetry from 'axios-retry'
+
 
 type Blog = {
     _id: string;
@@ -14,6 +16,8 @@ type Blog = {
 
 const Blog = () => {
     const [ blogs, setBlogs ] = useState([]);
+
+    axiosRetry(axios, { retries: 3, retryDelay: axiosRetry.exponentialDelay });
 
     useEffect(() => {
         try {
