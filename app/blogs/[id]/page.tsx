@@ -22,8 +22,7 @@ const page = async ({ params }: {params: { id: string}}) => {
   const [ nav, setNav ] = useState(false);
   const [ blog, setBlog ] = useState<Blog | null>(null);
 
-  // const blog = await getBlog(params.id)
-  // const router = useRouter();
+  
   useEffect(() => {
     getBlog(params.id).then((data) => setBlog(data));
   }, [params.id]);
@@ -34,14 +33,6 @@ const page = async ({ params }: {params: { id: string}}) => {
   if(!blog) {
     return <p>loading.....</p>;
   } 
-  // useEffect(() => {
-  //   axios.get(`/api/get_blogs/${_id}`)
-  //     .then((res) => {
-  //       console.log(res.data);
-  //       setStory(res.data);
-  //     })
-  //     .catch((err) => console.error('Error fetching blogs: ', err));
-  // }, []);
 
   return (
     <div className='overflow-x-hidden'>
