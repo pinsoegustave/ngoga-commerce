@@ -41,7 +41,7 @@ const Books = () => {
         <div className=''>
           <button onClick={() => setOpenPopUp(true)} className='bg-green-500 p-4 rounded-md flex gap-2'><IoIosAddCircle className='text-2xl' />Add a new book.</button>
         </div>
-        <div className='mt-4 h-[calc(100vh-180px)] overflow-y-auto'>
+        <div className='mt-4 h-[calc(100vh-240px)] overflow-y-auto'>
           <table className='w-full'>
             <thead>
               <tr className='text-gray-500 border-t border-[#ececec]'>
