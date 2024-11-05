@@ -36,7 +36,7 @@ const Music = () => {
         <div>
           <button onClick={() => setOpenPopup(true)} className='bg-green-500 p-4 rounded-md flex gap-2'><IoAddCircle className='text-2xl' /> Add new music</button>
         </div>
-        <div className='mt-4 h-[calc(100vh-180px)] overflow-y-auto'>
+        <div className='mt-4 h-[calc(100vh-240px)] overflow-y-auto'>
           <table className='w-full'>
             <thead>
               <tr className='text-gray-500 border-t border-[#ececec]'>
