@@ -28,7 +28,7 @@ const ClientReview = ({ name,role,image }: Props) => {
         </div>
         <h1 className='text-[25px] text-white mt-[1rem]'>{name}</h1>
         <p className='text-[18px] text-white opacity-75 mt-[0.5rem] mb-[1.4rem]'>{role}</p>
-        <p className='text-[16px] text-white opacity-50 w-[90%] md:w-[50%] mx-auto'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore unde reiciendis inventore nam voluptatum, iure laborum praesentium quasi natus esse aspernatur non, nihil optio quis dolorem consectetur magnam deserunt odio?</p>
+        <p className='text-[16px] text-white opacity-50 w-[90%] md:w-[50%] mx-auto'>We are proud to work with this man. His ambition, determination and courage should determine his goals. There is no doubt in working with him.</p>
     </div>
   )
 }
