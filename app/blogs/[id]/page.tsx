@@ -1,6 +1,7 @@
 'use client'
 import MobileNav from '@/components/MobileNav'
 import Navbar from '@/components/Navbar';
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
 interface Blog {
@@ -9,16 +10,17 @@ interface Blog {
   blogTitle: string;
   description: string;
 }
+ function getBlog(id: string): Promise<Blog | null> {
 
-async function getBlog(id: string): Promise<Blog | null> {
-  const res = await fetch(`/api/get_blogs/${id}`);
-  
-  if(!res.ok) return null;
-  return res.json();
+    return axios.get(`/api/get_blogs/${id}`)
+    .then((res) => res.data)
+    .catch((error) => {
+      console.error("Error fetching blogs: ", error);
+      return null;
+    });
+    
 }
-
-
-const page = async ({ params }: {params: { id: string}}) => {
+const page = ({ params }: {params: { id: string}}) => {
   const [ nav, setNav ] = useState(false);
   const [ blog, setBlog ] = useState<Blog | null>(null);
 
