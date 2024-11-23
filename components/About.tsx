@@ -11,7 +11,7 @@ const About = () => {
                 <h2 className='text-[25px] md:text-[35px] lg:text-[45px] md:leading-[3rem] leading-[2rem] capitalize mb-[3rem] font-bold text-white'>Transforming <span className='text-yellow-400'>visions</span></h2>
                 <div className='mb-[3rem] flex items-center md:space-x-10'>
                     <span className='w-[100px] hidden md:block h-[5px] bg-slate-400 rounded-sm'></span>
-                    <p className='text-[19px] text-slate-300 w-[80%]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, voluptatum saepe earum temporibus esse, molestias iure.</p>
+                    <p className='text-[19px] text-slate-300 w-[80%]'>Architecture is envisioned by Ngoga Commerce as a transformative medium that inspires and connects beyond functionality. Every design reflects a dedication to environmentally friendly growth and a genuine fusion of nature and culture. Our goal is to design areas that not only meet business requirements but also improve the communities in which they are located by creating settings that are inspiring in terms of creativity, beauty, and purpose. Do you want any particular values or themes related to Ngoga Commerce to be emphasized?</p>
                 </div>
                 <button className='px-[2rem] hover:bg-yellow-400 transition-all duration-200 py-[1rem] text-[18px] font-bold uppercase bg-[#55e6a5] text-black flex items-center space-x-2'>
                     <p>Download CV</p>

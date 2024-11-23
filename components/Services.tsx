@@ -13,7 +13,7 @@ const Services = () => {
                     <HomeIcon className='w-[6rem] h-[6rem] mx-auto text-[#d3fae8]' />
                     <h1 className='text-[20px] md:text-[30px] mt-[1.5rem] mb-[1.5]'>Residential</h1>
                     <p className='text-[15px] text-[#d3d2d2] font-normal'>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia laboriosam quos doloremque, praesentium fugiat repellat temporibus nisi.
+                    At Ngoga Commerce, our home designs prioritize classic elegance and high-end practicality. With an emphasis on elegant details and efficient use of space, every house is painstakingly designed. Our living spaces are designed to perfectly blend functionality and style, guaranteeing a long-lasting, superior setting that satisfies the ever-changing demands of contemporary life.
                     </p>
                 </div>
             </div>
@@ -22,7 +22,7 @@ const Services = () => {
                     <BuildingLibraryIcon className='w-[6rem] h-[6rem] mx-auto text-[#d3fae8]' />
                     <h1 className='text-[20px] md:text-[30px] mt-[1.5rem] mb-[1.5]'>Commercial</h1>
                     <p className='text-[15px] text-[#d3d2d2] font-normal'>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia laboriosam quos doloremque, praesentium fugiat repellat temporibus nisi.
+                    For commercial spaces, Ngoga Commerce designs dynamic, inviting, and practical environments. Each project is tailored to meet business goals while delivering an engaging and memorable experience for clients and customers.
                     </p>
                 </div>
             </div>
@@ -31,7 +31,7 @@ const Services = () => {
                     <CodeBracketSquareIcon className='w-[6rem] h-[6rem] mx-auto text-[#d3fae8]' />
                     <h1 className='text-[20px] md:text-[30px] mt-[1.5rem] mb-[1.5]'>Landscape</h1>
                     <p className='text-[15px] text-[#d3d2d2] font-normal'>
-                        Lorem ipsum dolor sit guthema amet consectetur adipisicing elit. Mollitia laboriosam quos doloremque, praesentium fugiat repellat temporibus nisi.
+                    Ngoga Commerce&apos;s landscape designs highlight natural beauty and sustainability. We craft outdoor areas that promote biodiversity, feature native plantings, and create enjoyable spaces for relaxation, play, and connection with nature.
                     </p>
                 </div>
             </div>
@@ -40,7 +40,7 @@ const Services = () => {
                     <CubeIcon className='w-[6rem] h-[6rem] mx-auto text-[#d3fae8]' />
                     <h1 className='text-[20px] md:text-[30px] mt-[1.5rem] mb-[1.5]'>Interior Design</h1>
                     <p className='text-[15px] text-[#d3d2d2] font-normal'>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia laboriosam quos doloremque, praesentium fugiat repellat temporibus nisi.
+                    Our interior design philosophy combines sophistication with practicality. We create environments that embody our clients’ visions, featuring refined finishes, cohesive layouts, and a timeless aesthetic that enriches every interior space.
                     </p>
                 </div>
             </div>
@@ -49,7 +49,7 @@ const Services = () => {
                     <HomeModernIcon className='w-[6rem] h-[6rem] mx-auto text-[#d3fae8]' />
                     <h1 className='text-[20px] md:text-[30px] mt-[1.5rem] mb-[1.5]'>Urban Design</h1>
                     <p className='text-[15px] text-[#d3d2d2] font-normal'>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia laboriosam quos doloremque, praesentium fugiat repellat temporibus nisi.
+                    Ngoga Commerce focuses on creating urban environments that promote connectivity, accessibility, and community involvement. We design flexible public spaces that encourage social interactions, prioritize walkability, and blend harmoniously with the city&apos;s identity.
                     </p>
                 </div>
             </div>
@@ -58,7 +58,7 @@ const Services = () => {
                     <SparklesIcon className='w-[6rem] h-[6rem] mx-auto text-[#d3fae8]' />
                     <h1 className='text-[20px] md:text-[30px] mt-[1.5rem] mb-[1.5]'>Green Design</h1>
                     <p className='text-[15px] text-[#d3d2d2] font-normal'>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia laboriosam quos doloremque, praesentium fugiat repellat temporibus nisi.
+                    Our approach to green design prioritizes sustainability through the use of eco-friendly materials and methods. We strive to minimize environmental impact, improve energy efficiency, and create a balance between constructed spaces and their natural settings.
                     </p>
                 </div>
             </div>
@@ -67,7 +67,7 @@ const Services = () => {
                     <BuildingOffice2Icon className='w-[6rem] h-[6rem] mx-auto text-[#d3fae8]' />
                     <h1 className='text-[20px] md:text-[30px] mt-[1.5rem] mb-[1.5]'>Industrial</h1>
                     <p className='text-[15px] text-[#d3d2d2] font-normal'>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia laboriosam quos doloremque, praesentium fugiat repellat temporibus nisi.
+                    In the realm of industrial design, Ngoga Commerce merges practicality with innovative style, developing spaces that enhance efficiency and adaptability. Our designs are aimed at optimizing workflows, ensuring longevity, and harmonizing aesthetics with functionality.
                     </p>
                 </div>
             </div>
