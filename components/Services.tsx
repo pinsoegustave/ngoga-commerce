@@ -12,8 +12,8 @@ const Services = () => {
                 <div className='bg-red-700 hover:scale-110 transform transition-all duration-300 hover:-rotate-6 uppercase font-semibold text-center p-[2rem]'>
                     <HomeIcon className='w-[6rem] h-[6rem] mx-auto text-[#d3fae8]' />
                     <h1 className='text-[20px] md:text-[30px] mt-[1.5rem] mb-[1.5]'>Residential</h1>
-                    <p className='text-[15px] text-[#d3d2d2] font-normal'>
-                    At Ngoga Commerce, our home designs prioritize classic elegance and high-end practicality. With an emphasis on elegant details and efficient use of space, every house is painstakingly designed. Our living spaces are designed to perfectly blend functionality and style, guaranteeing a long-lasting, superior setting that satisfies the ever-changing demands of contemporary life.
+                    <p className='text-[13px] text-[#d3d2d2] font-normal'>
+                     Home designs prioritize classic elegance and high-end practicality. With an emphasis on elegant details and efficient use of space, every house is painstakingly designed. Our living spaces are designed to perfectly blend functionality and style, superior setting that satisfies the ever-changing demands of contemporary life.
                     </p>
                 </div>
             </div>
