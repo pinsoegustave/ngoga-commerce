@@ -65,8 +65,8 @@ const Page = () => {
           <Skills />
           <Books />
           <Video />
-          <Testimonials />
           <Blog />
+          <Testimonials />
           <Footer />
         </div>
       </div>
